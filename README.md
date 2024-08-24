@@ -1,4 +1,4 @@
-# ImgVisuFeat
+# ImgVisFeat
 
 [![codecov](https://codecov.io/gh/chatflip/ImgVisFeat/branch/main/graph/badge.svg)](https://codecov.io/gh/username/repository)  
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  
