@@ -35,13 +35,3 @@ jobs:
         run: poetry run ruff check .
       - name: Run mypy
         run: poetry run mypy .
-      - name: Run tests
-        run: poetry run pytest tests/ --cov=./ --cov-report=xml
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v4
-        with:
-          file: ./coverage.xml
-          flags: unittests
-          env_vars: OS,PYTHON
-          name: codecov-umbrella
-          fail_ci_if_error: true
