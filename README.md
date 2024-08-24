@@ -1,9 +1,8 @@
-# template-python
+# ImgVisuFeat
 
 ## Requirement
 
 - Python >= 3.9
-- Poetry >= 1.2
 
 ## Installation
 
