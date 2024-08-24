@@ -41,8 +41,3 @@ class Visualizer:
             _ = image.shape
         except AttributeError:
             raise ValueError(f"Image not found: {src_image_path}")
-
-
-if __name__ == "__main__":
-    visualizer = Visualizer()
-    visualizer.visualize("tests/resources/images/test_image.jpg")
