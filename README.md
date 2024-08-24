@@ -1,4 +1,4 @@
-# ImgVisFeat
+# ImgVisuFeat
 
 ## Requirement
 
@@ -24,7 +24,7 @@ poetry add git+https://github.com/username/repo.git#v0.0.1
 
 ```python
 import cv2
-import imgvisufeat as ivf
+import imgvisfeat as ivf
 
 image = cv2.imread("path/to/image.jpg")
 
