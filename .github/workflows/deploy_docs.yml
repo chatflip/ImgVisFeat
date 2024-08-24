@@ -1,7 +1,5 @@
 name: Deploy docs
 on:
-  repository_dispatch:
-    types: [lints-and-tests-completed]
   push:
     branches:
       - main
