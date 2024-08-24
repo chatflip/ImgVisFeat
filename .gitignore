@@ -134,3 +134,5 @@ dmypy.json
 
 # Ruff
 .ruff_cache/
+
+_build
