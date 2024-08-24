@@ -1,4 +1,5 @@
 import tempfile
+from unittest import mock
 
 import pytest
 
@@ -37,7 +38,12 @@ def test_text() -> None:
 def test_run_show() -> None:
     vis = ivf.Visualizer()
     image_path = get_test_image_path()
-    vis.visualize(image_path)
+    with (
+        mock.patch("cv2.imshow"),
+        mock.patch("cv2.waitKey", return_value=1),
+        mock.patch("cv2.destroyAllWindows"),
+    ):
+        vis.visualize(image_path)
 
 
 def test_run_file() -> None:
