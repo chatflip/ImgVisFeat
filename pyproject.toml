@@ -6,8 +6,8 @@ authors = ["chatflip <oo.chat.flip@gmail.com>"]
 readme = "README.md"
 package-mode = true
 packages = [
-    { include = "imgvisufeat", from = "." },
-    { include = "imgvisufeat.*", from = "." },
+    { include = "ImgVisuFeat", from = "." },
+    { include = "ImgVisuFeat.*", from = "." },
 ]
 
 [tool.poetry.dependencies]
