@@ -1,14 +1,11 @@
 [tool.poetry]
-name = "ImgVisuFeat"
-version = "0.0.1"
-description = ""
+name = "ImgVisFeat"
+version = "0.0.0"
+description = "Image Visualization and Feature Extraction Library"
 authors = ["chatflip <oo.chat.flip@gmail.com>"]
 readme = "README.md"
 package-mode = true
-packages = [
-    { include = "ImgVisuFeat", from = "." },
-    { include = "ImgVisuFeat.*", from = "." },
-]
+packages = [{ include = "imgvisfeat"}]
 
 [tool.poetry.dependencies]
 python = ">=3.9,<3.13"

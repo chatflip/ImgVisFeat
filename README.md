@@ -1,4 +1,4 @@
-# ImgVisuFeat
+# ImgVisFeat
 
 ## Requirement
 

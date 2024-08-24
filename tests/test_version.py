@@ -1,4 +1,4 @@
-import imgvisufeat as ivf
+import imgvisfeat as ivf
 
 print(ivf.__version__)
 
