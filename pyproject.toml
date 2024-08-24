@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "template-python"
+version = "0.0.1"
+description = ""
+authors = ["chatflip <oo.chat.flip@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9,<3.11"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "0.1.5"
+mypy = "1.7.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
