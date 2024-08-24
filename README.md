@@ -1,8 +1,20 @@
 # ImgVisFeat
 
-[![codecov](https://codecov.io/gh/chatflip/ImgVisFeat/branch/main/graph/badge.svg)](https://codecov.io/gh/username/repository)  
+[![Python Versions](https://img.shields.io/badge/python-3.9%2C%203.10%2C%203.11%2C%203.12-blue)](https://python.org)  
+[![Build Status](https://github.com/chatflip/ImgVisFeat/actions/workflows/lints_tests.yml/badge.svg)](https://github.com/chatflip/ImgVisFeat/actions)  
+[![Codecov](https://codecov.io/gh/chatflip/ImgVisFeat/branch/main/graph/badge.svg)](https://codecov.io/gh/chatflip/ImgVisFeat)  
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  
 [![Documentation](https://img.shields.io/badge/docs-latest-blue.svg)](https://chatflip.github.io/ImgVisFeat/)　　
+
+ImgVisFeat is a powerful Python library for image visualization and feature extraction, designed to simplify and enhance your computer vision workflows.
+
+## Features
+
+- Fast and efficient image processing algorithms
+- Comprehensive set of feature extraction techniques
+- Easy-to-use visualization tools
+- Seamless integration with popular CV libraries
+- Extensive documentation and examples
 
 ## Requirement
 
@@ -13,14 +25,20 @@
 ### Install using pip
 
 ```bash
+# Install the latest version
 pip install git+https://github.com/username/repo.git@main
+
+# Install a specific version
 pip install git+https://github.com/username/repo.git@v0.0.1
 ```
 
 ### Install using poetry
 
 ```bash
+# Install the latest version
 poetry add git+https://github.com/username/repo.git#main
+
+# Install a specific version
 poetry add git+https://github.com/username/repo.git#v0.0.1
 ```
 
@@ -30,9 +48,34 @@ poetry add git+https://github.com/username/repo.git#v0.0.1
 import cv2
 import imgvisfeat as ivf
 
+visualizer = ivf.Visualizer()
+
+# Load an image
 image = cv2.imread("path/to/image.jpg")
 
+# Display the image
+visualizer.visualize(image)
+
+# Save the result
+visualizer.visualize(image, "path/to/dst_root")
+
 ```
+
+## Documentation
+
+For full documentation, including API reference and tutorials, please visit our [documentation site](https://chatflip.github.io/ImgVisFeat/).
+
+## Project Status
+
+ImgVisFeat is a personal project created for learning and experimentation. While it's open-source and you're welcome to use and learn from it, please note that it may not be actively maintained or updated regularly.
+
+## Feedback and Questions
+
+This is a practice repository, but I'm always eager to learn. If you have any questions about the project or suggestions for improvement, feel free to [open an issue](https://github.com/chatflip/ImgVisFeat/issues) for discussion. Please understand that responses may not be immediate.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Author
 
