@@ -6,13 +6,27 @@
 
 ## Installation
 
+### Install using pip
+
 ```bash
-poetry install
+pip install git+https://github.com/username/repo.git@main
+pip install git+https://github.com/username/repo.git@v0.0.1
 ```
 
-## Usage
+### Install using poetry
 
 ```bash
+poetry add git+https://github.com/username/repo.git#main
+poetry add git+https://github.com/username/repo.git#v0.0.1
+```
+
+## Quick Start
+
+```python
+import cv2
+import imgvisufeat as ivf
+
+image = cv2.imread("path/to/image.jpg")
 
 ```
 
