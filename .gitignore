@@ -136,3 +136,5 @@ dmypy.json
 .ruff_cache/
 
 _build
+
+test_image
