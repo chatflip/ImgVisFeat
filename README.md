@@ -51,15 +51,15 @@ import imgvisfeat as ivf
 
 visualizer = ivf.Visualizer()
 
-# Load an image
+# Show Result and Save Result to "path/to/image" Directory 
+visualizer.visualize("path/to/image.jpg")
+
+# Return Result as image
 image = cv2.imread("path/to/image.jpg")
-
-# Display the image
-visualizer.visualize(image)
-
-# Save the result
-visualizer.visualize(image, "path/to/dst_root")
-
+color_gradient_visualizer = ivf.ColorGradientVisualizer()
+result = color_gradient_visualizer.visualize(image)
+cv2.imshow("Color Gradient X Direction", result.gradient_x)
+cv2.imshow("Color Gradient X and Y Direction", result.gradient_xy)
 ```
 
 ## Documentation
