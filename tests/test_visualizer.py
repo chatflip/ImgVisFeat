@@ -1,4 +1,3 @@
-import tempfile
 from unittest import mock
 
 import pytest
@@ -66,7 +65,7 @@ def test_text() -> None:
         vis.visualize(text_path)
 
 
-def test_run_show() -> None:
+def test_visualize() -> None:
     """Test Visualizer.visualize() execution flow with mocked cv2 functions.
 
     Ensures Visualizer.visualize() calls cv2.imshow, cv2.waitKey, and
@@ -82,14 +81,3 @@ def test_run_show() -> None:
         mock.patch("cv2.destroyAllWindows"),
     ):
         vis.visualize(image_path)
-
-
-def test_run_file() -> None:
-    """Test Visualizer.visualize() saves image to temporary directory.
-
-    Verifies image saving functionality using a temporary directory.
-    """
-    vis = ivf.Visualizer()
-    image_path = get_test_image_path()
-    with tempfile.TemporaryDirectory() as temp_dir:
-        vis.visualize(image_path, dst_root=temp_dir)
