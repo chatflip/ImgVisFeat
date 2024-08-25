@@ -3,7 +3,7 @@ import numpy as np
 from numpy.typing import NDArray
 
 from .AbstractVisualizer import AbstractVisualizer
-from .type import KeyPointResult
+from .type import KeypointResult
 
 
 class KeypointVisualizer(AbstractVisualizer):
@@ -17,7 +17,7 @@ class KeypointVisualizer(AbstractVisualizer):
             )
         self.algorithm_name = algorithm_name
 
-    def __call__(self, source: NDArray[np.uint8]) -> KeyPointResult:
+    def __call__(self, source: NDArray[np.uint8]) -> KeypointResult:
         """Visualize keypoints in an image.
 
         Args:
@@ -35,7 +35,7 @@ class KeypointVisualizer(AbstractVisualizer):
             kp_image, rich_image = self.make_sift_image(color)
         elif self.algorithm_name == "ORB":
             kp_image, rich_image = self.make_orb_image(color)
-        return KeyPointResult(kp_image, rich_image)
+        return KeypointResult(kp_image, rich_image)
 
     def make_akaze_image(
         self, color: NDArray[np.uint8]

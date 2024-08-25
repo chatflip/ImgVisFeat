@@ -9,7 +9,7 @@ __all__ = [
     "PowerSpectrumResult",
     "HogResult",
     "LBPResult",
-    "KeyPointResult",
+    "KeypointResult",
 ]
 
 
@@ -59,7 +59,7 @@ class LBPResult(VisualizationResult):
 
 
 @dataclass
-class KeyPointResult(VisualizationResult):
+class KeypointResult(VisualizationResult):
     """A dataclass for storing keypoint results."""
 
     keypoint: NDArray[np.uint8]
