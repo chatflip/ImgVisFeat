@@ -19,7 +19,7 @@ class AbstractVisualizer(ABC):
         Returns:
             VisualizationResult: The result of the visualization.
         """
-        pass
+        pass  # pragma: no cover
 
     def __str__(self) -> str:
         """Return the name of the visualizer.

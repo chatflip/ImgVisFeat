@@ -4,23 +4,7 @@ import pytest
 
 import imgvisfeat as ivf
 
-
-def get_test_image_path() -> str:
-    """Get the path to the test image.
-
-    Returns:
-        str: Path to the test image.
-    """
-    return "tests/resources/images/test_image.jpg"
-
-
-def get_test_text_path() -> str:
-    """Get the path to the test text.
-
-    Returns:
-        str: Path to the test text.
-    """
-    return "tests/resources/text/test_text.txt"
+from .utils import get_test_image_path, get_test_text_path
 
 
 def test_nonexistent_file() -> None:

@@ -16,8 +16,7 @@ import os
 import cv2
 
 from .ColorChannelVisualizer import ColorChannelVisualizer
-from .ColorGradientVisualizer import ColorGradientVisualizer
-from .GrayGradientVisualizer import GrayGradientVisualizer
+from .GradientVisualizer import ColorGradientVisualizer, GrayGradientVisualizer
 from .HoGVisualizer import HoGVisualizer
 from .KeypointVisualizer import KeypointVisualizer
 from .LBPVisualizer import LBPVisualizer
