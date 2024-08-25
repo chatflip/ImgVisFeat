@@ -16,7 +16,6 @@ from .Visualizer import Visualizer  # noqa: F401
 __all__ = [
     "Visualizer",
     "ColorChannelVisualizer",
-    "GradientVisualizer",
     "ColorGradientVisualizer",
     "GrayGradientVisualizer",
     "HoGVisualizer",
