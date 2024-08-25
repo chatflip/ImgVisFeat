@@ -52,6 +52,7 @@ def test_gray_gradient_visualizer_str(
     """Test the __str__ method of the GrayGradientVisualizer class."""
     assert str(gray_gradient_visualizer) == "GrayGradientVisualizer"
 
+
 def test_color_gradient_visualizer_str(
     color_gradient_visualizer: ivf.ColorGradientVisualizer,
 ) -> None:
