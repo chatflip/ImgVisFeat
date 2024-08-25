@@ -51,4 +51,7 @@ class LBPVisualizer(AbstractVisualizer):
                 )
                 lbp_image[centerY - 1, centerX - 1] = lbp_pix
                 counter = 0
+        lbp_image = cv2.copyMakeBorder(  # type: ignore
+            lbp_image, 1, 1, 1, 1, cv2.BORDER_CONSTANT, value=0
+        )
         return LBPResult(lbp_image)
