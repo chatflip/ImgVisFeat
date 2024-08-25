@@ -1,3 +1,4 @@
+# noqa: D104
 from importlib.metadata import version
 
 from .Visualizer import Visualizer  # noqa: F401
