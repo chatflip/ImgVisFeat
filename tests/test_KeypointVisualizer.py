@@ -5,7 +5,7 @@ import imgvisfeat as ivf
 
 
 def test_sift_visualizer_color(
-    sift_visualizer : ivf.KeypointVisualizer, color_image: NDArray[np.uint8]
+    sift_visualizer: ivf.KeypointVisualizer, color_image: NDArray[np.uint8]
 ) -> None:
     """Test the KeypointVisualizer(SIFT) class with a color image."""
     result = sift_visualizer(color_image)
@@ -21,8 +21,9 @@ def test_sift_visualizer_gray(
     assert result.keypoint.shape[:2] == gray_image.shape
     assert result.rich_keypoint.shape[:2] == gray_image.shape
 
+
 def test_akaze_visualizer_color(
-    akaze_visualizer : ivf.KeypointVisualizer, color_image: NDArray[np.uint8]
+    akaze_visualizer: ivf.KeypointVisualizer, color_image: NDArray[np.uint8]
 ) -> None:
     """Test the KeypointVisualizer(AKAZE) class with a color image."""
     result = akaze_visualizer(color_image)
@@ -38,8 +39,9 @@ def test_akaze_visualizer_gray(
     assert result.keypoint.shape[:2] == gray_image.shape
     assert result.rich_keypoint.shape[:2] == gray_image.shape
 
+
 def test_orb_visualizer_color(
-    orb_visualizer : ivf.KeypointVisualizer, color_image: NDArray[np.uint8]
+    orb_visualizer: ivf.KeypointVisualizer, color_image: NDArray[np.uint8]
 ) -> None:
     """Test the KeypointVisualizer(ORB) class with a color image."""
     result = orb_visualizer(color_image)

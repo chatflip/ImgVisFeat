@@ -76,12 +76,6 @@ def lbp_visualizer() -> ivf.LBPVisualizer:
 
 
 @pytest.fixture
-def abstract_visualizer() -> ivf.AbstractVisualizer:
-    """Fixture to create a AbstractVisualizer instance."""
-    return ivf.AbstractVisualizer()
-
-
-@pytest.fixture
 def power_spectrum_visualizer() -> ivf.PowerSpectrumVisualizer:
     """Fixture to create a PowerSpectrumVisualizer instance."""
     return ivf.PowerSpectrumVisualizer()
