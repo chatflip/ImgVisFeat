@@ -52,12 +52,16 @@ class KeypointVisualizer(AbstractVisualizer):
         gray = cv2.cvtColor(color, cv2.COLOR_BGR2GRAY)
         kp_image = color.copy()
         rich_image = color.copy()
-        detector = cv2.AKAZE_create()
+        detector = cv2.AKAZE_create()  # type: ignore
         keypoints = detector.detect(gray)
-        color = (255, 255, 0)
+        circle_color = (255, 255, 0)
         for key in keypoints:
             cv2.circle(
-                kp_image, (np.uint64(key.pt[0]), np.uint64(key.pt[1])), 3, color, 1
+                kp_image,
+                (np.uint64(key.pt[0]), np.uint64(key.pt[1])),  # type: ignore
+                3,
+                circle_color,
+                1,
             )
         cv2.drawKeypoints(
             rich_image,
@@ -83,12 +87,16 @@ class KeypointVisualizer(AbstractVisualizer):
         gray = cv2.cvtColor(color, cv2.COLOR_BGR2GRAY)
         kp_image = color.copy()
         rich_image = color.copy()
-        detector = cv2.SIFT_create()
+        detector = cv2.SIFT_create()  # type: ignore
         keypoints = detector.detect(gray)
-        color = (255, 255, 0)
+        circle_color = (255, 255, 0)
         for key in keypoints:
             cv2.circle(
-                kp_image, (np.uint64(key.pt[0]), np.uint64(key.pt[1])), 3, color, 1
+                kp_image,
+                (np.uint64(key.pt[0]), np.uint64(key.pt[1])),  # type: ignore
+                3,
+                circle_color,
+                1,
             )
         cv2.drawKeypoints(
             rich_image,
@@ -114,9 +122,10 @@ class KeypointVisualizer(AbstractVisualizer):
         gray = cv2.cvtColor(color, cv2.COLOR_BGR2GRAY)
         kp_image = color.copy()
         rich_image = color.copy()
-        detector = cv2.ORB_create()
+        detector = cv2.ORB_create()  # type: ignore
         keypoints = detector.detect(gray)
-        cv2.drawKeypoints(kp_image, keypoints, kp_image, color=(0, 255, 0))
+        circle_color = (255, 255, 0)
+        cv2.drawKeypoints(kp_image, keypoints, kp_image, color=circle_color)
         cv2.drawKeypoints(
             rich_image,
             keypoints,

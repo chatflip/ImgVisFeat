@@ -75,7 +75,7 @@ class Visualizer:
         """
         self.check_image_assertions(src_image_path)
         name, _ = os.path.splitext(os.path.basename(src_image_path))
-        image = cv2.imread(src_image_path)
+        image = cv2.imread(src_image_path).astype("uint8")
         color_channel_result = self.color_channel_visualizer(image)
         gradient_result = self.color_gradient_visualizer(image)
         gray_gradient_result = self.gray_gradient_visualizer(image)
