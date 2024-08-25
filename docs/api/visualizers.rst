@@ -1,10 +1,10 @@
-API Reference
-=============
+Visualizers
+===========
 
-This part of the documentation covers all the interfaces of ImgVisFeat.
+This section covers all the visualizer classes provided by ImgVisFeat.
 
-Visualizer Base Class
----------------------
+Base Visualizer
+---------------
 
 .. automodule:: imgvisfeat.Visualizer
    :members:
@@ -21,11 +21,6 @@ Color Channel Visualizer
 
 Gradient Visualizers
 --------------------
-
-.. automodule:: imgvisfeat.GradientVisualizer
-   :members:
-   :undoc-members:
-   :show-inheritance:
 
 .. autoclass:: imgvisfeat.ColorGradientVisualizer
    :members:

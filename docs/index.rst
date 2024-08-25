@@ -1,15 +1,15 @@
-Welcome to ImgVisFeat
-=====================
+Welcome to ImgVisFeat's documentation!
+======================================
+
+ImgVisFeat is a Python library for image visualization and feature extraction.
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
-   api
-
-Introduction
-------------
-
-ImgVisFeat is a Python library for image visualization and feature extraction. It provides tools to analyze, visualize, and extract meaningful features from images.
+   installation
+   usage
+   api/index
 
 Indices and tables
 ==================
