@@ -20,3 +20,10 @@ def test_hog_visualizer_gray(
     """Test the PowerSpectrumVisualizer class with a grayscale image."""
     result = power_spectrum_visualizer(gray_image)
     assert result.power_spectrum.shape == gray_image.shape
+
+
+def test_power_spectrum_visualizer_str(
+    power_spectrum_visualizer: ivf.PowerSpectrumVisualizer,
+) -> None:
+    """Test the __str__ method of the PowerSpectrumVisualizer class."""
+    assert str(power_spectrum_visualizer) == "PowerSpectrumVisualizer"

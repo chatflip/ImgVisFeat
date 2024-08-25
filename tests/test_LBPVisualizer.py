@@ -18,3 +18,8 @@ def test_lbp_visualizer_gray(
     """Test the LBPVisualizer class with a grayscale image."""
     result = lbp_visualizer(gray_image)
     assert result.lbp.shape == gray_image.shape
+
+
+def test_lbp_visualizer_str(lbp_visualizer: ivf.LBPVisualizer) -> None:
+    """Test the __str__ method of the LBPVisualizer class."""
+    assert str(lbp_visualizer) == "LBPVisualizer"

@@ -18,3 +18,10 @@ def test_hog_visualizer_gray(
     """Test the HoGVisualizer class with a grayscale image."""
     result = hog_visualizer(gray_image)
     assert result.hog.shape == gray_image.shape
+
+
+def test_hog_visualizer_str(
+    hog_visualizer: ivf.HoGVisualizer,
+) -> None:
+    """Test the __str__ method of the HoGVisualizer class."""
+    assert str(hog_visualizer) == "HoGVisualizer"

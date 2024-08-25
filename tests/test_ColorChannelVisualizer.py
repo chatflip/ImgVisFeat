@@ -22,3 +22,10 @@ def test_color_channel_visualizer_gray(
     assert result.blue.shape[:2] == gray_image.shape[:2]
     assert result.green.shape[:2] == gray_image.shape[:2]
     assert result.red.shape[:2] == gray_image.shape[:2]
+
+
+def test_color_channel_visualizer_str(
+    color_channel_visualizer: ivf.ColorChannelVisualizer,
+) -> None:
+    """Test the __str__ method of the ColorChannelVisualizer class."""
+    assert str(color_channel_visualizer) == "ColorChannelVisualizer"
