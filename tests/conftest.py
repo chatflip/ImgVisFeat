@@ -82,6 +82,6 @@ def abstract_visualizer() -> ivf.AbstractVisualizer:
 
 
 @pytest.fixture
-def power_spectrum_visualizer():
+def power_spectrum_visualizer() -> ivf.PowerSpectrumVisualizer:
     """Fixture to create a PowerSpectrumVisualizer instance."""
     return ivf.PowerSpectrumVisualizer()
