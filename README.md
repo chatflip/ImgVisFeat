@@ -27,20 +27,20 @@ ImgVisFeat is a powerful Python library for image visualization and feature extr
 
 ```bash
 # Install the latest version
-pip install git+https://github.com/username/repo.git@main
+pip install git+https://github.com/chatflip/ImgVisFeat.git@main
 
 # Install a specific version
-pip install git+https://github.com/username/repo.git@v0.0.1
+pip install git+https://github.com/chatflip/ImgVisFeat.git@v0.0.1
 ```
 
 ### Install using poetry
 
 ```bash
 # Install the latest version
-poetry add git+https://github.com/username/repo.git#main
+poetry add git+https://github.com/chatflip/ImgVisFeat.git#main
 
 # Install a specific version
-poetry add git+https://github.com/username/repo.git#v0.0.1
+poetry add git+https://github.com/chatflip/ImgVisFeat.git#v0.0.1
 ```
 
 ## Quick Start
