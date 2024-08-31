@@ -47,3 +47,22 @@ def test_main_successful_execution(
     captured = capsys.readouterr()
     last_line = captured.out.splitlines()[-1]
     assert "Visualization complete." in last_line
+
+
+def test_main_error_handling(mock_argparse: MagicMock) -> None:
+    """Test error handling in the main CLI function.
+
+    This test ensures that the CLI function raises an exception
+    when an invalid path is provided as an argument.
+
+    Args:
+        mock_argparse (MagicMock): Mocked ArgumentParser class.
+
+    """
+    mock_argparse.parse_args.return_value = MagicMock(
+        image_path="path/to/nonexists/path.jpg", method="all"
+    )
+
+    with pytest.raises(SystemExit) as exc_info:
+        cli.main()
+    assert exc_info.value.code == 1
