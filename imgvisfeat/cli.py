@@ -35,6 +35,9 @@ def main() -> None:
         visualizer.visualize(args.image_path)
     except Exception as e:
         print(f"Error: {str(e)}", file=sys.stderr)
+        print("Visualization failed.")
+        sys.exit(1)
+    print("Visualization complete.")
 
 
 if __name__ == "__main__":

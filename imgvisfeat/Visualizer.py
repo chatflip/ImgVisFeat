@@ -144,7 +144,9 @@ class Visualizer:
         if not os.path.exists(src_image_path):
             raise FileNotFoundError(f"Image not found: {src_image_path}")
         elif not os.path.isfile(src_image_path):
-            raise IsADirectoryError(f"Image path must be a file, but got {src_image_path}")
+            raise IsADirectoryError(
+                f"Image path must be a file, but got {src_image_path}"
+            )
         try:
             image = cv2.imread(src_image_path)
             _ = image.shape
