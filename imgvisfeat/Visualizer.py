@@ -64,14 +64,11 @@ class Visualizer:
         Args:
             src_image_path (str): Path to the source image file.
 
-        Raises:
-            ValueError: If the src_image_path is invalid or the image
-                        cannot be loaded.
-
         Example:
             >>> visualizer = Visualizer()
             >>> visualizer.visualize('input.jpg', dst_root='output')
         """
+        print(f"Visualizing {src_image_path}")
         self.check_image_assertions(src_image_path)
         name, _ = os.path.splitext(os.path.basename(src_image_path))
         image = cv2.imread(src_image_path).astype("uint8")
@@ -136,14 +133,16 @@ class Visualizer:
             src_image_path (str): Path to the image.
 
         Raises:
-            ValueError: If the image is not found.
-            ValueError: If the image path is not a file.
+            FileNotFoundError: If the image is not found.
+            IsADirectoryError: If the image path is not a file.
             ValueError: If the image path is not a image.
         """
         if not os.path.exists(src_image_path):
-            raise ValueError(f"Image not found: {src_image_path}")
+            raise FileNotFoundError(f"Image not found: {src_image_path}")
         elif not os.path.isfile(src_image_path):
-            raise ValueError(f"Image path must be a file, but got {src_image_path}")
+            raise IsADirectoryError(
+                f"Image path must be a file, but got {src_image_path}"
+            )
         try:
             image = cv2.imread(src_image_path)
             _ = image.shape

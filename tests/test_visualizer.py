@@ -8,32 +8,32 @@ from .utils import get_test_image_path, get_test_text_path
 
 
 def test_nonexistent_file() -> None:
-    """Test Visualizer raises ValueError for nonexistent file.
+    """Test Visualizer raises FileNotFoundError for nonexistent file.
 
-    Ensures Visualizer.visualize() raises a ValueError when given a
+    Ensures Visualizer.visualize() raises a FileNotFoundError when given a
     file path that does not exist.
 
     Raises:
-        ValueError: When a nonexistent file path is provided to visualize().
+        FileNotFoundError: When a nonexistent file path is provided to visualize().
     """
     vis = ivf.Visualizer()
     non_exists_file_path = "path/to/nonexists/path.jpg"
-    with pytest.raises(ValueError):
+    with pytest.raises(FileNotFoundError):
         vis.visualize(non_exists_file_path)
 
 
 def test_directory() -> None:
-    """Test Visualizer raises ValueError for directory input.
+    """Test Visualizer raises IsADirectoryError for directory input.
 
-    Ensures Visualizer.visualize() raises a ValueError when given a
+    Ensures Visualizer.visualize() raises a IsADirectoryError when given a
     directory path instead of an image file path.
 
     Raises:
-        ValueError: When a directory path is provided to visualize().
+        IsADirectoryError: When a directory path is provided to visualize().
     """
     vis = ivf.Visualizer()
     directory_path = "tests/resources/images"
-    with pytest.raises(ValueError):
+    with pytest.raises(IsADirectoryError):
         vis.visualize(directory_path)
 
 
