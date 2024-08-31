@@ -38,7 +38,4 @@ def main() -> None:
         print("Visualization failed.")
         sys.exit(1)
     print("Visualization complete.")
-
-
-if __name__ == "__main__":
-    main()
+    sys.exit(0)
