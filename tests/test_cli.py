@@ -43,10 +43,12 @@ def test_main_successful_execution(
         patch("cv2.waitKey", return_value=1),
         patch("cv2.destroyAllWindows"),
     ):
-        cli.main()
+        with pytest.raises(SystemExit) as exc_info:
+            cli.main()
     captured = capsys.readouterr()
     last_line = captured.out.splitlines()[-1]
     assert "Visualization complete." in last_line
+    assert exc_info.value.code == 0
 
 
 def test_main_error_handling(mock_argparse: MagicMock) -> None:
