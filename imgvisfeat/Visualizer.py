@@ -64,10 +64,6 @@ class Visualizer:
         Args:
             src_image_path (str): Path to the source image file.
 
-        Raises:
-            ValueError: If the src_image_path is invalid or the image
-                        cannot be loaded.
-
         Example:
             >>> visualizer = Visualizer()
             >>> visualizer.visualize('input.jpg', dst_root='output')
@@ -137,8 +133,8 @@ class Visualizer:
             src_image_path (str): Path to the image.
 
         Raises:
-            ValueError: If the image is not found.
-            ValueError: If the image path is not a file.
+            FileNotFoundError: If the image is not found.
+            IsADirectoryError: If the image path is not a file.
             ValueError: If the image path is not a image.
         """
         if not os.path.exists(src_image_path):
