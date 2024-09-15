@@ -34,10 +34,10 @@ jobs:
       - name: Install dependencies and project
         run: poetry install --no-interaction
 
-      - name: Publish package to TestPyPI
+      - name: Publish package to PyPI
         env:
-            POETRY_HTTP_BASIC_TESTPYPI_USERNAME: "__token__"
-            POETRY_HTTP_BASIC_TESTPYPI_PASSWORD: ${{ secrets.TEST_PYPI_API_TOKEN }}
+            POETRY_HTTP_BASIC_PYPI_USERNAME: "__token__"
+            POETRY_HTTP_BASIC_PYPI_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
         run: |
-          poetry config repositories.testpypi https://test.pypi.org/legacy/
-          poetry publish --build --repository testpypi --no-interaction
+          poetry config repositories.pypi https://upload.pypi.org/legacy/
+          poetry publish --build --repository pypi --no-interaction
