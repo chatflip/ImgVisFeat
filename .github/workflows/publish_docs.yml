@@ -1,15 +1,8 @@
-name: Deploy docs
+name: Publish Documentation
 on:
   push:
-    branches:
-      - main
     tags:
       - 'v*.*.*'
-  pull_request:
-    types:
-      - closed
-    branches:
-      - main
 
 jobs:
   docs:
