@@ -63,6 +63,9 @@ version-pattern = """
 {tag}.post{distance}+{rev}
 """
 
+[tool.poetry.repositories.testpypi]
+url = "https://test.pypi.org/legacy/"
+
 [build-system]
 requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning>=1.0.0,<2.0.0"]
 build-backend = "poetry_dynamic_versioning.backend"
