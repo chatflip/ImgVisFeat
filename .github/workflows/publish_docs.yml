@@ -1,15 +1,9 @@
-name: Deploy docs
+name: Publish Documentation
+
 on:
   push:
-    branches:
-      - main
     tags:
       - 'v*.*.*'
-  pull_request:
-    types:
-      - closed
-    branches:
-      - main
 
 jobs:
   docs:
@@ -17,10 +11,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Set up Python 3.9
         uses: actions/setup-python@v5
         with:
-          python-version: 3.9.19
+          python-version: 3.9
 
       - name: Install Poetry
         uses: snok/install-poetry@v1
@@ -29,19 +23,18 @@ jobs:
           virtualenvs-create: true
           virtualenvs-in-project: true
 
-      - name: Load cached venv
-        id: cached-poetry-dependencies
+      - name: Cache Poetry dependencies
         uses: actions/cache@v4
         with:
           path: .venv
-          key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
+          key: poetry-${{ runner.os }}-py${{ matrix.python-version }}-${{ hashFiles('poetry.lock') }}
+          restore-keys: |
+            poetry-${{ runner.os }}-py${{ matrix.python-version }}-
 
-      - name: Install dependencies
-        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
-        run: poetry install --no-interaction --no-root
-
-      - name: Install project
-        run: poetry install --no-interaction
+      - name: Install dependencies and project, poetry-dynamic-versioning
+        run: |
+          poetry install --no-interaction
+          poetry self add poetry-dynamic-versioning
 
       - name: Sphinx build
         run: |
