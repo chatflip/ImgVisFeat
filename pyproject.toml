@@ -30,7 +30,7 @@ Repository = "https://github.com/chatflip/ImgVisFeat"
 
 [tool.poetry]
 name = "ImgVisFeat"
-version = "0.0.0"
+version = "0.0.2"
 description = "Image Visualization and Feature Extraction Library"
 authors = ["chatflip <oo.chat.flip@gmail.com>"]
 readme = "README.md"

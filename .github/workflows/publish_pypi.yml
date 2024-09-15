@@ -31,8 +31,10 @@ jobs:
           restore-keys: |
             poetry-${{ runner.os }}-py${{ matrix.python-version }}-
 
-      - name: Install dependencies and project
-        run: poetry install --no-interaction
+      - name: Install dependencies and project, poetry-dynamic-versioning
+        run: |
+          poetry install --no-interaction
+          poetry self add poetry-dynamic-versioning
 
       - name: Publish package to PyPI
         env:
