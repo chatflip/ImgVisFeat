@@ -7,8 +7,6 @@
 | Development | [![Build Status](https://github.com/chatflip/ImgVisFeat/actions/workflows/lints_tests.yml/badge.svg)](https://github.com/chatflip/ImgVisFeat/actions) [![Codecov](https://codecov.io/gh/chatflip/ImgVisFeat/branch/main/graph/badge.svg)](https://codecov.io/gh/chatflip/ImgVisFeat) |
 | Community |[![GitHub issues](https://img.shields.io/github/issues/chatflip/ImgVisFeat.svg)](https://github.com/chatflip/ImgVisFeat/issues) [![GitHub stars](https://img.shields.io/github/stars/chatflip/ImgVisFeat.svg)](https://github.com/chatflip/ImgVisFeat/stargazers)|
 
-
-
 ImgVisFeat is a powerful Python library for image visualization and feature extraction, designed to simplify and enhance your computer vision workflows.
 
 ## Features
