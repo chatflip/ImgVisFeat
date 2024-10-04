@@ -4,7 +4,7 @@ version = "0.0.0"
 description = "Image Visualization and Feature Extraction Library"
 readme = "README.md"
 requires-python = ">=3.9"
-license = { text = "MIT License" }
+license = { file = "LICENSE" }
 authors = [{ name = "chatflip", email = "oo.chat.flip@gmail.com" }]
 keywords = ['image_processing', 'feature_extraction', 'visualization']
 
@@ -33,11 +33,7 @@ name = "ImgVisFeat"
 version = "0.0.2"
 description = "Image Visualization and Feature Extraction Library"
 authors = ["chatflip <oo.chat.flip@gmail.com>"]
-readme = "README.md"
-license = "MIT"
-package-mode = true
 packages = [{ include = "imgvisfeat"}]
-homepage = "https://github.com/chatflip/ImgVisFeat"
 
 [tool.poetry.dependencies]
 python = ">=3.9,<4.0"
