@@ -9,7 +9,7 @@ from imgvisfeat import cli
 from .utils import get_test_image_path
 
 
-@pytest.fixture
+@pytest.fixture(name="mock_argparse")
 def mock_argparse() -> Generator[MagicMock, None, None]:
     """Fixture to mock the ArgumentParser class.
 

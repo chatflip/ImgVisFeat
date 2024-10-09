@@ -7,7 +7,7 @@ import imgvisfeat as ivf
 from .utils import get_image
 
 
-@pytest.fixture
+@pytest.fixture(name="color_image")
 def color_image() -> NDArray[np.uint8]:
     """Return a color image.
 
@@ -17,7 +17,7 @@ def color_image() -> NDArray[np.uint8]:
     return get_image(is_gray=False)
 
 
-@pytest.fixture
+@pytest.fixture(name="gray_image")
 def gray_image() -> NDArray[np.uint8]:
     """Return a grayscale image.
 
@@ -27,55 +27,55 @@ def gray_image() -> NDArray[np.uint8]:
     return get_image(is_gray=True)
 
 
-@pytest.fixture
+@pytest.fixture(name="color_channel_visualizer")
 def color_channel_visualizer() -> ivf.ColorChannelVisualizer:
     """Fixture to create a ColorChannelVisualizer instance."""
     return ivf.ColorChannelVisualizer()
 
 
-@pytest.fixture
+@pytest.fixture(name="gray_gradient_visualizer")
 def gray_gradient_visualizer() -> ivf.GrayGradientVisualizer:
     """Fixture to create a GrayGradientVisualizer instance."""
     return ivf.GrayGradientVisualizer()
 
 
-@pytest.fixture
+@pytest.fixture(name="color_gradient_visualizer")
 def color_gradient_visualizer() -> ivf.ColorGradientVisualizer:
     """Fixture to create a ColorGradientVisualizer instance."""
     return ivf.ColorGradientVisualizer()
 
 
-@pytest.fixture
+@pytest.fixture(name="hog_visualizer")
 def hog_visualizer() -> ivf.HoGVisualizer:
     """Fixture to create a HoGVisualizer instance."""
     return ivf.HoGVisualizer()
 
 
-@pytest.fixture
+@pytest.fixture(name="akaze_visualizer")
 def akaze_visualizer() -> ivf.KeypointVisualizer:
     """Fixture to create a AKAZEVisualizer instance."""
     return ivf.KeypointVisualizer("AKAZE")
 
 
-@pytest.fixture
+@pytest.fixture(name="orb_visualizer")
 def orb_visualizer() -> ivf.KeypointVisualizer:
     """Fixture to create a ORBVisualizer instance."""
     return ivf.KeypointVisualizer("ORB")
 
 
-@pytest.fixture
+@pytest.fixture(name="sift_visualizer")
 def sift_visualizer() -> ivf.KeypointVisualizer:
     """Fixture to create a SIFTVisualizer instance."""
     return ivf.KeypointVisualizer("SIFT")
 
 
-@pytest.fixture
+@pytest.fixture(name="lbp_visualizer")
 def lbp_visualizer() -> ivf.LBPVisualizer:
     """Fixture to create a LBPVisualizer instance."""
     return ivf.LBPVisualizer()
 
 
-@pytest.fixture
+@pytest.fixture(name="power_spectrum_visualizer")
 def power_spectrum_visualizer() -> ivf.PowerSpectrumVisualizer:
     """Fixture to create a PowerSpectrumVisualizer instance."""
     return ivf.PowerSpectrumVisualizer()
