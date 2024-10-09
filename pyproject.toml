@@ -20,6 +20,9 @@ classifiers = [
 ]
 authors = ["chatflip <oo.chat.flip@gmail.com>"]
 readme = "README.md"
+homepage = "https://github.com/chatflip/ImgVisFeat"
+repository = "https://github.com/chatflip/ImgVisFeat"
+documentation = "https://chatflip.github.io/ImgVisFeat"
 packages = [{ include = "imgvisfeat", from = "src"}]
 
 [tool.poetry.dependencies]
@@ -47,10 +50,7 @@ version-pattern = """
 """
 
 [tools.project.urls]
-Homepage = "https://github.com/chatflip/ImgVisFeat"
 Issues = "https://github.com/chatflip/ImgVisFeat/issues"
-Documentation = "https://chatflip.github.io/ImgVisFeat"
-Repository = "https://github.com/chatflip/ImgVisFeat"
 
 [build-system]
 requires = ["poetry>=1.8","poetry-core>=1.0.0", "poetry-dynamic-versioning>=1.0.0,<2.0.0"]
