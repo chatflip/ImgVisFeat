@@ -1,13 +1,9 @@
-[project]
+[tool.poetry]
 name = "ImgVisFeat"
-version = "0.0.0"
+version = "0.0.2"
 description = "Image Visualization and Feature Extraction Library"
-readme = "README.md"
-requires-python = ">=3.9"
-license = { file = "LICENSE" }
-authors = [{ name = "chatflip", email = "oo.chat.flip@gmail.com" }]
 keywords = ['image_processing', 'feature_extraction', 'visualization']
-
+license = "MIT"
 classifiers = [
     "Development Status :: 1 - Planning",
     "Intended Audience :: Developers",
@@ -22,24 +18,8 @@ classifiers = [
     "Topic :: Education",
     "Topic :: Scientific/Engineering :: Image Recognition",
 ]
-
-dependencies = [
-    "opencv-python=2020.1",
-    "opencv-python=4.10.0.84",
-    "numpy=<2.0.0"
-]
-
-[project.urls]
-Homepage = "https://github.com/chatflip/ImgVisFeat"
-Issues = "https://github.com/chatflip/ImgVisFeat/issues"
-Documentation = "https://chatflip.github.io/ImgVisFeat"
-Repository = "https://github.com/chatflip/ImgVisFeat"
-
-[tool.poetry]
-name = "ImgVisFeat"
-version = "0.0.2"
-description = "Image Visualization and Feature Extraction Library"
 authors = ["chatflip <oo.chat.flip@gmail.com>"]
+readme = "README.md"
 packages = [{ include = "imgvisfeat", from = "src"}]
 
 [tool.poetry.dependencies]
@@ -65,6 +45,12 @@ version-pattern = """
 {tag}
 {tag}.post{distance}+{rev}
 """
+
+[tools.project.urls]
+Homepage = "https://github.com/chatflip/ImgVisFeat"
+Issues = "https://github.com/chatflip/ImgVisFeat/issues"
+Documentation = "https://chatflip.github.io/ImgVisFeat"
+Repository = "https://github.com/chatflip/ImgVisFeat"
 
 [build-system]
 requires = ["poetry>=1.8","poetry-core>=1.0.0", "poetry-dynamic-versioning>=1.0.0,<2.0.0"]
