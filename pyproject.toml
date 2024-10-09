@@ -53,6 +53,18 @@ version-pattern = """
 [tools.project.urls]
 Issues = "https://github.com/chatflip/ImgVisFeat/issues"
 
+[tool.coverage.run]
+branch = true
+source = ["src"]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 100
+omit = ["tests/*"]
+
+[tool.coverage.html]
+directory = "htmlcov"
+
 [build-system]
 requires = ["poetry>=1.8","poetry-core>=1.0.0", "poetry-dynamic-versioning>=1.0.0,<2.0.0"]
 build-backend = "poetry_dynamic_versioning.backend"
