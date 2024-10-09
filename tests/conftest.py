@@ -51,24 +51,6 @@ def hog_visualizer() -> ivf.HoGVisualizer:
     return ivf.HoGVisualizer()
 
 
-@pytest.fixture(name="akaze_visualizer")
-def akaze_visualizer() -> ivf.KeypointVisualizer:
-    """Fixture to create a AKAZEVisualizer instance."""
-    return ivf.KeypointVisualizer("AKAZE")
-
-
-@pytest.fixture(name="orb_visualizer")
-def orb_visualizer() -> ivf.KeypointVisualizer:
-    """Fixture to create a ORBVisualizer instance."""
-    return ivf.KeypointVisualizer("ORB")
-
-
-@pytest.fixture(name="sift_visualizer")
-def sift_visualizer() -> ivf.KeypointVisualizer:
-    """Fixture to create a SIFTVisualizer instance."""
-    return ivf.KeypointVisualizer("SIFT")
-
-
 @pytest.fixture(name="lbp_visualizer")
 def lbp_visualizer() -> ivf.LBPVisualizer:
     """Fixture to create a LBPVisualizer instance."""
