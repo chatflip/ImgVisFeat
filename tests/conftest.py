@@ -1,8 +1,7 @@
+import imgvisfeat as ivf
 import numpy as np
 import pytest
 from numpy.typing import NDArray
-
-import imgvisfeat as ivf
 
 from .utils import get_image
 
