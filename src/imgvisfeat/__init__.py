@@ -1,6 +1,4 @@
 # noqa: D104
-from importlib.metadata import version
-
 from .AbstractVisualizer import AbstractVisualizer  # noqa: F401
 from .ColorChannelVisualizer import ColorChannelVisualizer  # noqa: F401
 from .GradientVisualizer import (  # noqa: F401
@@ -24,4 +22,4 @@ __all__ = [
     "PowerSpectrumVisualizer",
 ]
 
-__version__ = version("imgvisfeat")
+__version__ = "0.0.0"

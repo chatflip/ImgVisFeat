@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ImgVisFeat"
-version = "0.0.2"
+version = "0.0.0"
 description = "Image Visualization and Feature Extraction Library"
 keywords = ['image_processing', 'feature_extraction', 'visualization']
 license = "MIT"
@@ -44,6 +44,7 @@ ivf = "imgvisfeat.cli:main"
 
 [tool.poetry-dynamic-versioning]
 enable = true
+substitution.folders = [{path = "src"}]
 version-pattern = """
 {tag}
 {tag}.post{distance}+{rev}
