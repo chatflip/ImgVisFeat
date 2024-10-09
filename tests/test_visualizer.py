@@ -1,7 +1,8 @@
 from unittest import mock
 
-import imgvisfeat as ivf
 import pytest
+
+import imgvisfeat as ivf
 
 from .utils import get_test_image_path, get_test_text_path
 
