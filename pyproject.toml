@@ -40,7 +40,7 @@ name = "ImgVisFeat"
 version = "0.0.2"
 description = "Image Visualization and Feature Extraction Library"
 authors = ["chatflip <oo.chat.flip@gmail.com>"]
-packages = [{ include = "imgvisfeat"}]
+packages = [{ include = "imgvisfeat", from = "src"}]
 
 [tool.poetry.dependencies]
 python = ">=3.9,<4.0"
