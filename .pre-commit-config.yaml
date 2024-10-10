@@ -2,31 +2,38 @@ repos:
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.6.9
     hooks:
-      - id: ruff
-        name: ruff-check
-        entry: ruff check
-        language: python
-        types_or: [python, pyi]
-        args: [--fix, --config=ruff.toml]
-        require_serial: true
-        minimum_pre_commit_version: "2.9.2"
+    - id: ruff
+      name: ruff
+      description: "Run 'ruff' for extremely fast Python linting"
+      entry: ruff check --force-exclude
+      language: python
+      types_or: [python, pyi]
+      args: [--fix]
+      require_serial: true
+      additional_dependencies: []
+      minimum_pre_commit_version: "2.9.2"
 
-      - id: ruff-format
-        name: ruff-format
-        entry: ruff format
-        language: python
-        types_or: [python, pyi]
-        args: [--config=ruff.toml]
-        require_serial: true
-        minimum_pre_commit_version: "2.9.2"
+    - id: ruff-format
+      name: ruff-format
+      description: "Run 'ruff format' for extremely fast Python formatting"
+      entry: ruff format --force-exclude
+      language: python
+      types_or: [python, pyi]
+      args: []
+      require_serial: true
+      additional_dependencies: []
+      minimum_pre_commit_version: "2.9.2"
 
   - repo: https://github.com/pre-commit/mirrors-mypy
     rev: v1.11.1
     hooks:
     - id: mypy
       name: mypy
+      description: ''
       entry: mypy
       language: python
-      args: [--config-file=mypy.ini]
+      types_or: [python, pyi]
+      args: ["--ignore-missing-imports", "--scripts-are-modules"]
       require_serial: true
-      minimum_pre_commit_version: "2.9.2"
+      additional_dependencies: []
+      minimum_pre_commit_version: '2.9.2'
