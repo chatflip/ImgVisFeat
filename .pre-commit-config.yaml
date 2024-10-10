@@ -10,7 +10,7 @@ repos:
         types_or: [python, pyi]
         args: [--fix]
         require_serial: true
-        additional_dependencies: []
+
       - id: ruff-format
         name: ruff-format
         description: "Run 'ruff format' for extremely fast Python formatting"
@@ -19,7 +19,6 @@ repos:
         types_or: [python, pyi]
         args: []
         require_serial: true
-        additional_dependencies: []
   - repo: https://github.com/pre-commit/mirrors-mypy
     rev: v1.11.1
     hooks:
@@ -30,4 +29,3 @@ repos:
       language: python
       args: [--strict, --ignore-missing-imports]
       require_serial: true
-      additional_dependencies: []
