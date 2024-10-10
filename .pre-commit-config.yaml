@@ -25,5 +25,5 @@ repos:
       name: mypy
       entry: mypy
       language: python
-      args: []
+      args: ["--config-file", "mypy.ini"]
       require_serial: true
