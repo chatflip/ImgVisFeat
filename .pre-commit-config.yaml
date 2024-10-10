@@ -7,7 +7,7 @@ repos:
         entry: ruff check
         language: python
         types_or: [python, pyi]
-        args: [--fix]
+        args: [--fix, "--config", "ruff.toml"]
         require_serial: true
 
       - id: ruff-format
@@ -15,7 +15,7 @@ repos:
         entry: ruff format
         language: python
         types_or: [python, pyi]
-        args: []
+        args: ["--config", "ruff.toml"]
         require_serial: true
 
   - repo: https://github.com/pre-commit/mirrors-mypy
