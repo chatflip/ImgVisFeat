@@ -35,5 +35,5 @@ class HoGVisualizer(AbstractVisualizer):
             block_norm="L2-Hys",
             visualize=True,
         )
-        hog_image = np.uint8(hog_image * 255)
-        return HogResult(hog_image)  # type: ignore[arg-type]
+        hog_image_uint8 = (hog_image * 255).astype(np.uint8)
+        return HogResult(hog=hog_image_uint8)

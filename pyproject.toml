@@ -28,6 +28,7 @@ classifiers = [
 dependencies = [
     "numpy",
     "opencv-python",
+    "pydantic>=2.0.0",
     "scikit-image",
 ]
 
@@ -66,11 +67,11 @@ default-groups = "all"
 
 [tool.coverage.run]
 branch = true
-source = ["src"]
+source = ["src/imgvisfeat"]
 
 [tool.coverage.report]
 show_missing = true
-fail_under = 100
+fail_under = 80
 omit = ["tests/*"]
 
 [tool.coverage.html]

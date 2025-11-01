@@ -35,4 +35,4 @@ class PowerSpectrumVisualizer(AbstractVisualizer):
         pow = pow / p_max * 255
         pow_image = np.array(np.uint8(pow))
 
-        return PowerSpectrumResult(pow_image)
+        return PowerSpectrumResult(power_spectrum=pow_image)
