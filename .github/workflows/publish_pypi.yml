@@ -27,10 +27,8 @@ jobs:
           VERSION=${GITHUB_REF#refs/tags/v}
           uv version $VERSION
 
+      - name: Build
+        run: uv build
+
       - name: Publish package to PyPI
-        env:
-            POETRY_HTTP_BASIC_PYPI_USERNAME: "__token__"
-            POETRY_HTTP_BASIC_PYPI_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
-        run: |
-          poetry config repositories.pypi https://upload.pypi.org/legacy/
-          poetry publish --build --repository pypi --no-interaction
+        run: uv publish
