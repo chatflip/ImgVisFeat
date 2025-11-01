@@ -40,7 +40,7 @@ class ColorGradientVisualizer(AbstractVisualizer):
         grad_x[:, :, 2] = cv2.filter2D(image[:, :, 2], -1, kernel_x).astype(np.uint8)
         grad_y[:, :, 2] = cv2.filter2D(image[:, :, 2], -1, kernel_y).astype(np.uint8)
         grad_xy[:, :, 2] = cv2.filter2D(image[:, :, 2], -1, kernel_xy).astype(np.uint8)
-        return GradientResult(grad_x, grad_y, grad_xy)
+        return GradientResult(gradient_x=grad_x, gradient_y=grad_y, gradient_xy=grad_xy)
 
 
 class GrayGradientVisualizer(AbstractVisualizer):
@@ -69,4 +69,4 @@ class GrayGradientVisualizer(AbstractVisualizer):
         grad_x = cv2.filter2D(gray, -1, kernel_x).astype(np.uint8)
         grad_y = cv2.filter2D(gray, -1, kernel_y).astype(np.uint8)
         grad_xy = cv2.filter2D(gray, -1, kernel_xy).astype(np.uint8)
-        return GradientResult(grad_x, grad_y, grad_xy)
+        return GradientResult(gradient_x=grad_x, gradient_y=grad_y, gradient_xy=grad_xy)

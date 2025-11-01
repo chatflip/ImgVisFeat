@@ -37,7 +37,7 @@ class KeypointVisualizer(AbstractVisualizer):
             kp_image, rich_image = self.make_orb_image(color)
         else:
             raise ValueError(f"Invalid algorithm name: {self.algorithm_name}")
-        return KeypointResult(kp_image, rich_image)
+        return KeypointResult(keypoint=kp_image, rich_keypoint=rich_image)
 
     def make_akaze_image(
         self, color: NDArray[np.uint8]

@@ -31,4 +31,4 @@ class ColorChannelVisualizer(AbstractVisualizer):
         blue[:, :, 0] = image[:, :, 0]
         green[:, :, 1] = image[:, :, 1]
         red[:, :, 2] = image[:, :, 2]
-        return ColorChannelResult(blue, green, red)
+        return ColorChannelResult(blue=blue, green=green, red=red)
