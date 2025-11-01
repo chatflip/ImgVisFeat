@@ -36,8 +36,12 @@ dev = [
     "pre-commit",
 ]
 lint = [
-    "ruff==0.14.3",
+    "ruff==0.14.3", 
     "mypy~=1.18.2",
+    "mdformat==0.7.21",
+    "mdformat-footnote==0.1.1",
+    "mdformat-frontmatter==2.0.8",
+    "mdformat-gfm==0.4.1",
 ]
 test = [
     "pytest",

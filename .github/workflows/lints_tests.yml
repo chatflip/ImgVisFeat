@@ -25,14 +25,14 @@ jobs:
       - name: Install the project
         run: uv sync --locked --group lint test
 
-      - name: Run ruff
-        run: uv run ruff check .
+      - name: Run format
+        run: make format
 
-      - name: Run mypy
-        run: uv run mypy .
+      - name: Run lint
+        run: make lint
 
       - name: Run tests
-        run: uv run pytest tests/ --cov=./ --cov-report=xml
+        run: make test
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
