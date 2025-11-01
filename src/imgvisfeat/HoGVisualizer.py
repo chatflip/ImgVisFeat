@@ -36,4 +36,4 @@ class HoGVisualizer(AbstractVisualizer):
             visualize=True,
         )
         hog_image = np.uint8(hog_image * 255)
-        return HogResult(hog_image)
+        return HogResult(hog_image)  # type: ignore[arg-type]

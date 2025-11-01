@@ -1,11 +1,11 @@
 # ImgVisFeat
 
-| | |
-| -- | -- |
-| Project | [![PyPI version](https://badge.fury.io/py/ImgVisFeat.svg)](https://pypi.org/project/ImgVisFeat/) [![Documentation](https://img.shields.io/badge/docs-latest-blue.svg)](https://chatflip.github.io/ImgVisFeat/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) |
-| Package | [![Python Versions](https://img.shields.io/pypi/pyversions/ImgVisFeat.svg)](https://pypi.org/project/ImgVisFeat/) |
-| Development | [![Build Status](https://github.com/chatflip/ImgVisFeat/actions/workflows/lints_tests.yml/badge.svg)](https://github.com/chatflip/ImgVisFeat/actions) [![Codecov](https://codecov.io/gh/chatflip/ImgVisFeat/branch/main/graph/badge.svg)](https://codecov.io/gh/chatflip/ImgVisFeat) |
-| Community |[![GitHub issues](https://img.shields.io/github/issues/chatflip/ImgVisFeat.svg)](https://github.com/chatflip/ImgVisFeat/issues) [![GitHub stars](https://img.shields.io/github/stars/chatflip/ImgVisFeat.svg)](https://github.com/chatflip/ImgVisFeat/stargazers)|
+|             |                                                                                                                                                                                                                                                                                                                            |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Project     | [![PyPI version](https://badge.fury.io/py/ImgVisFeat.svg)](https://pypi.org/project/ImgVisFeat/) [![Documentation](https://img.shields.io/badge/docs-latest-blue.svg)](https://chatflip.github.io/ImgVisFeat/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) |
+| Package     | [![Python Versions](https://img.shields.io/pypi/pyversions/ImgVisFeat.svg)](https://pypi.org/project/ImgVisFeat/)                                                                                                                                                                                                          |
+| Development | [![Build Status](https://github.com/chatflip/ImgVisFeat/actions/workflows/lints_tests.yml/badge.svg)](https://github.com/chatflip/ImgVisFeat/actions) [![Codecov](https://codecov.io/gh/chatflip/ImgVisFeat/branch/main/graph/badge.svg)](https://codecov.io/gh/chatflip/ImgVisFeat)                                       |
+| Community   | [![GitHub issues](https://img.shields.io/github/issues/chatflip/ImgVisFeat.svg)](https://github.com/chatflip/ImgVisFeat/issues) [![GitHub stars](https://img.shields.io/github/stars/chatflip/ImgVisFeat.svg)](https://github.com/chatflip/ImgVisFeat/stargazers)                                                          |
 
 ImgVisFeat is a powerful Python library for image visualization and feature extraction, designed to simplify and enhance your computer vision workflows.
 
@@ -17,28 +17,87 @@ ImgVisFeat is a powerful Python library for image visualization and feature extr
 - Seamless integration with popular CV libraries
 - Extensive documentation and examples
 
-## Requirement
+## Requirements
 
-- Python >= 3.9
+- Python >= 3.10
+- NumPy < 2.0.0
+- OpenCV Python
+- scikit-image
 
 ## Installation
 
-### Install using pip
+### Install from PyPI (Recommended)
+
+Using pip:
 
 ```bash
-# Install from PyPI
 pip install ImgVisFeat
-# Install a specific version
-pip install git+https://github.com/chatflip/ImgVisFeat.git@10fb495
 ```
 
-### Install using poetry
+Using poetry:
 
 ```bash
-# Install from PyPI
 poetry add ImgVisFeat
-# Install a specific version
+```
+
+### Install from Source
+
+Clone the repository and install with pip:
+
+```bash
+git clone https://github.com/chatflip/ImgVisFeat.git
+cd ImgVisFeat
+pip install .
+```
+
+Or with poetry:
+
+```bash
+git clone https://github.com/chatflip/ImgVisFeat.git
+cd ImgVisFeat
+poetry install
+```
+
+### Install Specific Version
+
+Using pip:
+
+```bash
+# Install from a specific commit
+pip install git+https://github.com/chatflip/ImgVisFeat.git@10fb495
+
+# Install from a specific tag/release
+pip install git+https://github.com/chatflip/ImgVisFeat.git@v0.1.0
+```
+
+Using poetry:
+
+```bash
+# Install from a specific commit
 poetry add git+https://github.com/chatflip/ImgVisFeat.git#10fb495
+
+# Install from a specific tag/release
+poetry add git+https://github.com/chatflip/ImgVisFeat.git#v0.1.0
+```
+
+### Development Installation
+
+For contributing or development:
+
+```bash
+git clone https://github.com/chatflip/ImgVisFeat.git
+cd ImgVisFeat
+uv sync --all-extras
+
+# Install pre-commit hooks
+pre-commit install
+```
+
+### Verify Installation
+
+```python
+import imgvisfeat as ivf
+print(ivf.__version__)
 ```
 
 ## Quick Start

@@ -24,7 +24,7 @@ class ColorChannelVisualizer(AbstractVisualizer):
         """
         image = source.copy()
         if image.ndim != 3:
-            image = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)  # type: ignore
+            image = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR).astype(np.uint8)
         blue = np.zeros_like(image, dtype=np.uint8)
         green = np.zeros_like(image, dtype=np.uint8)
         red = np.zeros_like(image, dtype=np.uint8)
