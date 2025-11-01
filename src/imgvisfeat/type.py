@@ -28,14 +28,14 @@ class VisualizationResult(BaseModel):
 
     @field_validator("*", mode="before")
     @classmethod
-    def validate_numpy_array(cls, v: Any) -> Any:
+    def validate_numpy_array(cls, v: Any) -> NDArray[np.uint8]:
         """Validate that the value is a NumPy array with correct dtype.
 
         Args:
             v: The value to validate.
 
         Returns:
-            The validated NumPy array.
+            The validated NumPy array with dtype uint8.
 
         Raises:
             ValueError: If the value is not a valid NumPy array or has incorrect dtype.
