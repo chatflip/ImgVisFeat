@@ -24,7 +24,7 @@ class ColorGradientVisualizer(AbstractVisualizer):
         """
         image = source.copy()
         if image.ndim != 3:
-            image = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)  # type: ignore
+            image = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)
         grad_x = np.zeros_like(image, dtype=np.uint8)
         grad_y = np.zeros_like(image, dtype=np.uint8)
         grad_xy = np.zeros_like(image, dtype=np.uint8)
