@@ -1,6 +1,9 @@
 [run]
 branch = true
 source = src/imgvisfeat
+omit = 
+    config.py
+    config-3.py
 
 [report]
 show_missing = true
@@ -9,4 +12,3 @@ omit = tests/*
 
 [html]
 directory = htmlcov
-
