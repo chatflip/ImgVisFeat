@@ -1,144 +1,136 @@
-# CLAUDE.md
+# Development Guidelines
 
-このファイルは、このリポジトリのコードを扱う際にClaude Code (claude.ai/code) へのガイダンスを提供します。
+このドキュメントには、このコードベースでの作業に関する重要な情報が含まれています。これらのガイドラインに正確に従ってください。
 
 ## プロジェクト概要
 
-ImgVisFeatは、画像の可視化と特徴抽出のためのPythonライブラリです。カラーチャンネル、勾配、HoG、LBP、キーポイント（SIFT、AKAZE、ORB）、パワースペクトラム解析を含む、画像特徴を分析するための様々な可視化ツールを提供します。
+ImgVisFeatは、画像の可視化と特徴抽出のためのPythonライブラリです。カラーチャンネル、勾配、HoG、LBP、キーポイント（SIFT、AKAZE、ORB）、パワースペクトラム解析など、画像特徴を分析するための様々な可視化ツールを提供します。
 
-## 開発コマンド
-
-### Makeターゲット（推奨）
-
-プロジェクトはMakefileを提供しており、一般的な開発タスクを簡単に実行できます：
-
-```bash
-# 利用可能なターゲットを表示
-make help
-
-# コードをフォーマット（ruff + mdformat）
-make format
-
-# リントチェックを実行（ruff + mypy）
-make lint
-
-# テストを実行（pytest + カバレッジ）
-make test
-
-# ドキュメントをビルド
-make builddocs
-
-# ドキュメントのビルド成果物を削除
-make cleandocs
-```
+## コア開発ルール
 
 ### パッケージ管理
 
-プロジェクトは依存関係管理に[uv](https://docs.astral.sh/uv/)を使用しています：
+- **uvのみを使用し、pipは使用しない**
+- **禁止**: `uv pip install`, `@latest` 構文
 
 ```bash
-# 依存関係のインストール（全ての依存グループを含む）
-uv sync
-
-# 本番依存関係のみインストール
-uv sync --no-dev
-
-# 新しい依存関係の追加
-uv add <package>
-
-# 開発用依存関係の追加
-uv add --dev <package>
-
-# パッケージの削除
-uv remove <package>
-
-# 依存関係のリストを表示
-uv pip list
+uv sync                    # 依存関係のインストール
+uv add <package>          # 依存関係の追加
+uv add --dev <package>    # 開発用依存関係の追加
+uv remove <package>       # パッケージの削除
 ```
+
+### コード品質
+
+- すべてのコードに型ヒントが必要
+- パブリックAPIにはdocstringが必須
+- 関数は焦点を絞り、小さく保つ
+- 既存のパターンに正確に従う
+- 行の長さ: 最大88文字
 
 ### テスト
 
+- フレームワーク: `make test`
+- カバレッジ: 80%以上必須
+- 新機能にはテストが必要
+- バグ修正には回帰テストが必要
+
+## コミットとプルリクエスト
+
+### コミットトレーラー
+
 ```bash
-# Makeを使用（推奨）
-make test
-
-# または直接uvを使用
-uv run pytest tests/ --cov=./ --cov-report=xml
-
-# 単一のテストファイルを実行
-uv run pytest tests/test_<name>.py
-
-# 特定のテストを実行
-uv run pytest tests/test_<name>.py::test_function_name
-
-# 注意：カバレッジは100%に到達する必要があります（pyproject.tomlでfail_under = 100）
+git commit --trailer "Reported-by:<name>"        # ユーザー報告の場合
+git commit --trailer "Github-Issue:#<number>"    # GitHub issue関連
 ```
 
-### リンティングとフォーマット
+- **絶対に `co-authored-by` やツール名を記載しない**
+
+### プルリクエスト
+
+- 問題とその解決方法に焦点を当てた詳細な説明を作成
+- コードの詳細は明確性を高める場合のみ記載
+
+## 開発コマンド
+
+### Makeターゲット
 
 ```bash
-# Makeを使用（推奨）
-make lint      # リントチェック
-make format    # フォーマット修正
-
-# または直接uvを使用
-uv run ruff check .              # リンターを実行
-uv run ruff check --fix .        # 自動修正付き
-uv run ruff format .             # コードをフォーマット
-uv run mypy .                    # 型チェック
-uv run mdformat README.md        # Markdownをフォーマット
-
-# pre-commitフックを手動で実行
-uv run pre-commit run --all-files
-```
-
-### ビルドと公開
-
-```bash
-# パッケージをビルド
-uv build
-
-# PyPIに公開
-uv publish
-
-# TestPyPIに公開
-uv publish --publish-url https://test.pypi.org/legacy/
-```
-
-### ドキュメントビルド
-
-```bash
-# Makeを使用（推奨）
+make help        # 利用可能なターゲットを表示
+make format      # フォーマット（ruff + mdformat）
+make lint        # リントと型チェック（ruff + ty）
+make test        # テスト実行（pytest + カバレッジ）
 make builddocs   # ドキュメントをビルド
-make cleandocs   # ビルド成果物を削除
-
-# または直接uvを使用
-uv run sphinx-build docs _build
+make cleandocs   # ドキュメント成果物を削除
 ```
 
-### CLIツール
-
-パッケージは`ivf`というCLIコマンドを提供します：
+### 直接実行
 
 ```bash
-# 可視化CLIを実行
-uv run ivf path/to/image.jpg
+# フォーマット・リント
+uv run ruff check --fix .
+uv run ruff format .
+uv run ty check
 
-# またはインストール後
-ivf path/to/image.jpg --method all
+# テスト
+uv run pytest tests/ --cov=./ --cov-report=xml
+uv run pytest tests/test_<name>.py                        # 単一テスト
+uv run pytest tests/test_<name>.py::test_function_name    # 特定テスト
+
+# Pre-commit
+uv run pre-commit run --all-files
+
+# ビルド・公開
+uv build
+uv publish
+uv publish --publish-url https://test.pypi.org/legacy/
+
+# CLI
+uv run ivf path/to/image.jpg
 ```
+
+## エラー解決
+
+### CI失敗時の修正順序
+
+1. フォーマット
+2. 型エラー
+3. リンティング
+
+### よくある問題
+
+**行の長さ**: 括弧で文字列を分割、関数呼び出しを複数行に、インポートを分割
+
+**型エラー**: Noneチェックを追加、型ナローイング、既存パターンに合わせる
+
+### ベストプラクティス
+
+- コミット前にgit statusを確認
+- 型チェックの前にフォーマッタを実行
+- 変更を最小限に保つ
+- 既存のパターンに従う
+
+## 例外処理
+
+- **`logger.exception()` を使用**（`logger.error()` ではない）
+- 例外をメッセージに含めない: `logger.exception("Failed")`
+
+### 特定の例外をキャッチ
+
+```python
+except (OSError, PermissionError):        # ファイル操作
+except json.JSONDecodeError:              # JSON
+except (ConnectionError, TimeoutError):   # ネットワーク
+```
+
+### `Exception` を使用する場合
+
+- クラッシュしてはならないトップレベルハンドラー
+- クリーンアップブロック（デバッグレベルでログ）
 
 ## コードアーキテクチャ
 
 ### Visualizerパターン
-
-すべての可視化ツールは、`AbstractVisualizer.py`で定義された抽象基底クラスパターンに従います：
-
-- **AbstractVisualizer**: `NDArray[np.uint8]`を受け取り`VisualizationResult`を返す抽象`__call__`メソッドを持つ基底クラス
-- 各可視化ツールは、特定の可視化を実行するために`__call__`メソッドを実装します
-- 結果は`type.py`で定義された型付きデータクラスとして返されます
-
-### Visualizer階層
 
 ```text
 AbstractVisualizer (抽象基底)
@@ -148,76 +140,41 @@ AbstractVisualizer (抽象基底)
 │   └── GrayGradientVisualizer → GradientResult
 ├── HoGVisualizer → HogResult
 ├── LBPVisualizer → LBPResult
-├── KeypointVisualizer → KeypointResult
-│   ("SIFT"、"AKAZE"、"ORB"アルゴリズムをサポート)
+├── KeypointVisualizer → KeypointResult ("SIFT", "AKAZE", "ORB")
 └── PowerSpectrumVisualizer → PowerSpectrumResult
 ```
 
+- **AbstractVisualizer**: `NDArray[np.uint8]`を受け取り`VisualizationResult`を返す
+- 各可視化ツールは`__call__`メソッドを実装
+- 結果は`type.py`で定義された型付きデータクラス
+
 ### メインVisualizerクラス
 
-`Visualizer.py`は以下を行う高レベルインターフェースを提供します：
+`Visualizer.py`は高レベルインターフェースを提供：
 
-- 利用可能なすべての可視化ツールをインスタンス化
+- すべての可視化ツールをインスタンス化
 - 入力画像にすべての可視化を適用
-- 入力画像名に基づいたディレクトリに結果を保存
-- OpenCVウィンドウで結果を表示
-
-### 結果タイプ
-
-すべての可視化結果は`VisualizationResult`基底クラスを継承し、`type.py`でデータクラスとして定義されています：
-
-- `ColorChannelResult`: blue、green、redチャンネル
-- `GradientResult`: gradient_x、gradient_y、gradient_xy
-- `HogResult`: hog可視化
-- `LBPResult`: lbp可視化
-- `KeypointResult`: keypoint、rich_keypoint
-- `PowerSpectrumResult`: power_spectrum
+- 結果を保存・表示
 
 ### テスト構造
 
-- テストは`conftest.py`で定義されたフィクスチャを持つpytestを使用
-- `tests/utils.py`に共通テストユーティリティ
-- 各可視化ツールには対応するテストファイルがあります（例：`test_HoGVisualizer.py`）
-- テスト画像は`get_image()`ユーティリティを使用してプログラム的に生成されます
+- pytest + `conftest.py`のフィクスチャ
+- `tests/utils.py`に共通ユーティリティ
+- 各可視化ツールに対応するテストファイル
+- テスト画像は`get_image()`でプログラム的に生成
 
 ## コードスタイル
 
-### ドキュメント
-
-- Googleスタイルのdocstringを使用（ruff.tomlで設定）
-- モジュールレベルのdocstringが必要（ただしD100は無視）
-- すべてのパブリッククラスとメソッドは文書化する必要があります
-
-### フォーマット
-
-- 行の長さ：88文字（Black互換）
-- Ruffが強制：pycodestyle (E, W)、Pyflakes (F)、isort (I)、pydocstyle (D)、McCabe (C)
-- Pythonターゲットバージョン：3.10
-
-### 型ヒント
-
-- すべての関数シグネチャには型ヒントを含める必要があります
-- 配列タイプには`numpy.typing.NDArray`を使用
-- Mypyの厳密チェックが有効
-
-### Pre-commitフック
-
-プロジェクトはpre-commitを使用：
-
-- `ruff check --fix`: リンティング問題を自動修正
-- `ruff format`: コードを自動フォーマット
+- **Docstring**: Googleスタイル（D100は無視）
+- **行の長さ**: 88文字（Black互換）
+- **型ヒント**: すべての関数シグネチャに必須、配列は`NDArray`を使用
+- **Ruff**: pycodestyle (E, W)、Pyflakes (F)、isort (I)、pydocstyle (D)、McCabe (C)
+- **Pythonバージョン**: 3.10+
 
 ## 主要な制約
 
-- **テストカバレッジ**: 100%のテストカバレッジを維持する必要があります
-- **Pythonバージョン**: Python 3.10+をサポート（pyproject.tomlに記載）
-- **画像タイプ**: すべての画像入力は`NDArray[np.uint8]`である必要があります
-- **ビルドシステム**: uvをビルドバックエンドとして使用（uv_build）
-
-## CLIエントリポイント
-
-CLIは`cli.py`で定義され、エントリポイントは`ivf`です（pyproject.tomlで設定）：
-
-- 必須引数として画像パスを受け取ります
-- オプションの`--method`フラグ（現在可視化ツールでは完全に実装されていません）
-- エラー時は終了コード1、成功時は0で終了します
+- テストカバレッジ: 80%以上（`.coveragerc`）
+- Pythonバージョン: 3.10+
+- 画像タイプ: `NDArray[np.uint8]`
+- ビルドシステム: uv_build
+- CLIエントリポイント: `ivf`（`pyproject.toml`で設定）
