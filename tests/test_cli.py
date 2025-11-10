@@ -48,7 +48,7 @@ def test_main_successful_execution(
     captured = capsys.readouterr()
     last_line = captured.out.splitlines()[-1]
     assert "Visualization complete." in last_line
-    assert exc_info.value.code == 0
+    assert exc_info.value.code == 0  # type: ignore[attr-defined]
 
 
 def test_main_error_handling(mock_argparse: MagicMock) -> None:
@@ -67,4 +67,4 @@ def test_main_error_handling(mock_argparse: MagicMock) -> None:
 
     with pytest.raises(SystemExit) as exc_info:
         cli.main()
-    assert exc_info.value.code == 1
+    assert exc_info.value.code == 1  # type: ignore[attr-defined]

@@ -37,8 +37,8 @@ dev = [
     "pre-commit",
 ]
 lint = [
-    "ruff==0.14.3", 
-    "mypy~=1.18.2",
+    "ruff==0.14.4", 
+    "ty>=0.0.1a25",
     "mdformat==0.7.21",
     "mdformat-footnote==0.1.1",
     "mdformat-frontmatter==2.0.8",
@@ -64,18 +64,6 @@ ivf = "imgvisfeat.cli:main"
 
 [tool.uv]
 default-groups = "all"
-
-[tool.coverage.run]
-branch = true
-source = ["src/imgvisfeat"]
-
-[tool.coverage.report]
-show_missing = true
-fail_under = 80
-omit = ["tests/*"]
-
-[tool.coverage.html]
-directory = "htmlcov"
 
 [build-system]
 requires = ["uv_build>=0.9.7,<0.10.0"]

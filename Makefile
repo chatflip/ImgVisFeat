@@ -12,13 +12,13 @@ help:
 	@echo "  cleandocs - Clean the documentation build artifacts"
 
 format:
-	uv run ruff check --fix && \
-	uv run ruff format && \
+	uv run ruff check --fix
+	uv run ruff format
 	uv run mdformat README.md
 
 lint:
-	uv run ruff check && \
-	uv run mypy
+	uv run ruff check
+	uv run ty check
 
 test:
 	uv run pytest tests/ --cov=./ --cov-report=xml
