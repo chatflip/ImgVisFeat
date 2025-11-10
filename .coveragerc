@@ -1,0 +1,12 @@
+[run]
+branch = true
+source = src/imgvisfeat
+
+[report]
+show_missing = true
+fail_under = 80
+omit = tests/*
+
+[html]
+directory = htmlcov
+
