@@ -46,7 +46,7 @@ For development, we recommend using [uv](https://docs.astral.sh/uv/):
 ```bash
 git clone https://github.com/chatflip/ImgVisFeat.git
 cd ImgVisFeat
-uv sync
+make install
 
 # Install pre-commit hooks
 pre-commit install
