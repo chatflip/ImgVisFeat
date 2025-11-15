@@ -117,6 +117,22 @@ include = ["src", "tests"]
 [tool.ty.terminal]
 error-on-warning = true
 
+[tool.coverage.run]
+branch = true
+source = ["src/imvf"]
+omit = [
+    "config.py",
+    "config-3.py",
+]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 80
+omit = ["tests/*"]
+
+[tool.coverage.html]
+directory = "htmlcov"
+
 [build-system]
 requires = ["uv_build>=0.9.7,<0.10.0"]
 build-backend = "uv_build"
