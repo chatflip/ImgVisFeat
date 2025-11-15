@@ -7,8 +7,6 @@ ImgVisFeat is a Python library for image visualization and feature extraction.
    :maxdepth: 2
    :caption: Contents:
 
-   installation
-   usage
    cli
    api/index
 

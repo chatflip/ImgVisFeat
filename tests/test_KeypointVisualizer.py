@@ -2,7 +2,7 @@ import numpy as np
 import pytest
 from numpy.typing import NDArray
 
-import imgvisfeat as ivf
+import ivf
 
 
 @pytest.mark.parametrize("algorithm_name", ["AKAZE", "SIFT", "ORB"])

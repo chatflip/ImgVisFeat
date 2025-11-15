@@ -6,7 +6,7 @@ This section covers all the visualizer classes provided by ImgVisFeat.
 Base Visualizer
 ---------------
 
-.. automodule:: imgvisfeat.Visualizer
+.. automodule:: ivf.Visualizer
    :members:
    :undoc-members:
    :show-inheritance:
@@ -14,7 +14,7 @@ Base Visualizer
 Color Channel Visualizer
 ------------------------
 
-.. automodule:: imgvisfeat.ColorChannelVisualizer
+.. automodule:: ivf.ColorChannelVisualizer
    :members:
    :undoc-members:
    :show-inheritance:
@@ -22,12 +22,12 @@ Color Channel Visualizer
 Gradient Visualizers
 --------------------
 
-.. autoclass:: imgvisfeat.ColorGradientVisualizer
+.. autoclass:: ivf.ColorGradientVisualizer
    :members:
    :undoc-members:
    :show-inheritance:
 
-.. autoclass:: imgvisfeat.GrayGradientVisualizer
+.. autoclass:: ivf.GrayGradientVisualizer
    :members:
    :undoc-members:
    :show-inheritance:
@@ -35,7 +35,7 @@ Gradient Visualizers
 HoG Visualizer
 --------------
 
-.. automodule:: imgvisfeat.HoGVisualizer
+.. automodule:: ivf.HoGVisualizer
    :members:
    :undoc-members:
    :show-inheritance:
@@ -43,7 +43,7 @@ HoG Visualizer
 Keypoint Visualizer
 -------------------
 
-.. automodule:: imgvisfeat.KeypointVisualizer
+.. automodule:: ivf.KeypointVisualizer
    :members:
    :undoc-members:
    :show-inheritance:
@@ -51,7 +51,7 @@ Keypoint Visualizer
 LBP Visualizer
 --------------
 
-.. automodule:: imgvisfeat.LBPVisualizer
+.. automodule:: ivf.LBPVisualizer
    :members:
    :undoc-members:
    :show-inheritance:
@@ -59,7 +59,7 @@ LBP Visualizer
 Power Spectrum Visualizer
 -------------------------
 
-.. automodule:: imgvisfeat.PowerSpectrumVisualizer
+.. automodule:: ivf.PowerSpectrumVisualizer
    :members:
    :undoc-members:
    :show-inheritance:

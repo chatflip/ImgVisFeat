@@ -1,7 +1,7 @@
 import numpy as np
 from numpy.typing import NDArray
 
-import imgvisfeat as ivf
+import ivf
 
 
 def test_lbp_visualizer_color(

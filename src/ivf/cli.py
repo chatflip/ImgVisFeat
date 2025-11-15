@@ -1,7 +1,7 @@
 import argparse
 import sys
 
-import imgvisfeat as ivf
+import ivf
 
 
 def main() -> None:
