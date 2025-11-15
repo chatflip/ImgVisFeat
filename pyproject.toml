@@ -61,7 +61,7 @@ Issues = "https://github.com/chatflip/ImgVisFeat/issues"
 ivf = "imgvisfeat.cli:main"
 
 [tool.uv]
-default-groups = "all"
+default-groups = []
 
 [tool.ruff]
 target-version = "py310"
