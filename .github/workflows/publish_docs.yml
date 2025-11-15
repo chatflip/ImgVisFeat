@@ -4,7 +4,8 @@ on:
   push:
     tags:
       - "v*.*.*"
-
+permissions:
+  contents: write
 jobs:
   docs:
     runs-on: ubuntu-latest
@@ -27,6 +28,6 @@ jobs:
           VERSION=${GITHUB_REF#refs/tags/v}
           uv version $VERSION
 
-      - name: Build and deploy documentation
+      - name: Deploy documentation
         run: |
-          uv run mkdocs gh-deploy
+          uv run mkdocs gh-deploy --force
