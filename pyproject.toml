@@ -39,10 +39,6 @@ dev = [
 lint = [
     "ruff==0.14.4", 
     "ty>=0.0.1a25",
-    "mdformat==0.7.21",
-    "mdformat-footnote==0.1.1",
-    "mdformat-frontmatter==2.0.8",
-    "mdformat-gfm==0.4.1",
 ]
 test = [
     "pytest",
