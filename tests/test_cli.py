@@ -1,29 +1,41 @@
-from typing import Generator
-from unittest.mock import MagicMock, patch
+from unittest.mock import patch
 
 import pytest
 from pytest import CaptureFixture
+from typer.testing import CliRunner
 
 from imvf import cli
 
 from .utils import get_test_image_path
 
 
-@pytest.fixture(name="mock_argparse")
-def mock_argparse() -> Generator[MagicMock, None, None]:
-    """Fixture to mock the ArgumentParser class.
+@pytest.fixture(name="cli_runner")
+def cli_runner() -> CliRunner:
+    """Fixture to create a Typer CliRunner.
+
+    Returns:
+        CliRunner: A Typer CliRunner instance for testing.
+    """
+    return CliRunner()
+
+
+@pytest.fixture(name="mock_cv2")
+def mock_cv2():
+    """Fixture to mock cv2 display functions.
 
     Yields:
-        MagicMock: A mock object representing the ArgumentParser class.
+        Context manager for cv2 mocks.
     """
-    with patch("argparse.ArgumentParser", autospec=True) as mock:
-        parser = mock.return_value
-        parser.parse_args = MagicMock()
-        yield parser
+    with (
+        patch("cv2.imshow"),
+        patch("cv2.waitKey", return_value=1),
+        patch("cv2.destroyAllWindows"),
+    ):
+        yield
 
 
 def test_main_successful_execution(
-    mock_argparse: MagicMock, capsys: CaptureFixture[str]
+    cli_runner: CliRunner, capsys: CaptureFixture[str], mock_cv2
 ) -> None:
     """Test successful execution of the main CLI function.
 
@@ -31,40 +43,112 @@ def test_main_successful_execution(
     and output is produced when the CLI is executed successfully.
 
     Args:
-        mock_argparse (MagicMock): Mocked ArgumentParser class.
+        cli_runner (CliRunner): Typer CLI runner.
         capsys (CaptureFixture[str]): Pytest fixture to capture stdout and stderr.
+        mock_cv2: Fixture for mocking cv2 functions.
 
     """
-    mock_argparse.parse_args.return_value = MagicMock(
-        image_path=get_test_image_path(), method="all"
-    )
-    with (
-        patch("cv2.imshow"),
-        patch("cv2.waitKey", return_value=1),
-        patch("cv2.destroyAllWindows"),
-    ):
-        with pytest.raises(SystemExit) as exc_info:
-            cli.main()
-    captured = capsys.readouterr()
-    last_line = captured.out.splitlines()[-1]
-    assert "Visualization complete." in last_line
-    assert exc_info.value.code == 0  # type: ignore[attr-defined]
+    result = cli_runner.invoke(cli.app, ["all", get_test_image_path()])
+    assert result.exit_code == 0
+    assert "Visualization complete." in result.stdout
 
 
-def test_main_error_handling(mock_argparse: MagicMock) -> None:
+def test_main_error_handling(cli_runner: CliRunner) -> None:
     """Test error handling in the main CLI function.
 
     This test ensures that the CLI function raises an exception
     when an invalid path is provided as an argument.
 
     Args:
-        mock_argparse (MagicMock): Mocked ArgumentParser class.
+        cli_runner (CliRunner): Typer CLI runner.
 
     """
-    mock_argparse.parse_args.return_value = MagicMock(
-        image_path="path/to/nonexists/path.jpg", method="all"
-    )
+    result = cli_runner.invoke(cli.app, ["all", "path/to/nonexists/path.jpg"])
+    assert result.exit_code == 1
 
-    with pytest.raises(SystemExit) as exc_info:
-        cli.main()
-    assert exc_info.value.code == 1  # type: ignore[attr-defined]
+
+@pytest.mark.parametrize(
+    "subcommand",
+    [
+        "all",
+        "color-channel",
+        "gradient",
+        "hog",
+        "keypoint",
+        "lbp",
+        "power-spectrum",
+    ],
+)
+def test_all_subcommands_successful(
+    cli_runner: CliRunner, mock_cv2, subcommand: str
+) -> None:
+    """Test that all subcommands execute successfully.
+
+    Args:
+        cli_runner (CliRunner): Typer CLI runner.
+        mock_cv2: Fixture for mocking cv2 functions.
+        subcommand (str): The subcommand to test.
+
+    """
+    result = cli_runner.invoke(cli.app, [subcommand, get_test_image_path()])
+    assert result.exit_code == 0
+    assert "Visualization complete." in result.stdout
+
+
+@pytest.mark.parametrize(
+    "subcommand",
+    [
+        "all",
+        "color-channel",
+        "gradient",
+        "hog",
+        "keypoint",
+        "lbp",
+        "power-spectrum",
+    ],
+)
+def test_all_subcommands_error_handling(cli_runner: CliRunner, subcommand: str) -> None:
+    """Test error handling for all subcommands.
+
+    Args:
+        cli_runner (CliRunner): Typer CLI runner.
+        subcommand (str): The subcommand to test.
+
+    """
+    result = cli_runner.invoke(cli.app, [subcommand, "path/to/nonexists/path.jpg"])
+    assert result.exit_code == 1
+    # Error messages are written to stderr
+    assert "Error:" in result.stderr
+    assert "Visualization failed" in result.stderr
+
+
+def test_help_command(cli_runner: CliRunner) -> None:
+    """Test that the help command works.
+
+    Args:
+        cli_runner (CliRunner): Typer CLI runner.
+
+    """
+    result = cli_runner.invoke(cli.app, ["--help"])
+    assert result.exit_code == 0
+    assert "ImgVisFeat: Visualize image features" in result.stdout
+    assert "all" in result.stdout
+    assert "color-channel" in result.stdout
+    assert "gradient" in result.stdout
+    assert "hog" in result.stdout
+    assert "keypoint" in result.stdout
+    assert "lbp" in result.stdout
+    assert "power-spectrum" in result.stdout
+
+
+def test_subcommand_help(cli_runner: CliRunner) -> None:
+    """Test that subcommand help works.
+
+    Args:
+        cli_runner (CliRunner): Typer CLI runner.
+
+    """
+    result = cli_runner.invoke(cli.app, ["all", "--help"])
+    assert result.exit_code == 0
+    assert "Visualize all features" in result.stdout
+    assert "IMAGE_PATH" in result.stdout

@@ -63,14 +63,17 @@ make help
 # Run tests
 make test
 
+# Generate HTML coverage report and open in browser
+make coverage
+
 # Format code
 make format
 
 # Run linting
 make lint
 
-# Build documentation
-make builddocs
+# Serve documentation with live reload
+make servedocs
 ```
 
 For more details on development workflows, see [CLAUDE.md](CLAUDE.md).
@@ -139,25 +142,33 @@ cv2.imshow("Rich Keypoints", result.rich_keypoint)
 
 ### Using the CLI
 
-ImgVisFeat provides a command-line interface for quick visualizations:
+ImgVisFeat provides a command-line interface for quick visualizations. The CLI uses subcommands for each visualization method:
 
 ```bash
 # Visualize all features
-imvf path/to/image.jpg
+imvf all path/to/image.jpg
 
-# Visualize specific feature (currently all methods are applied)
-imvf path/to/image.jpg --method all
+# Visualize specific features
+imvf hog path/to/image.jpg
+imvf keypoint path/to/image.jpg
+imvf gradient path/to/image.jpg
+
+# Get help
+imvf --help
+
+# Get help for a specific subcommand
+imvf hog --help
 ```
 
-Available methods:
+Available subcommands:
 
-- `all`: All visualization methods (default)
-- `color_channel`: Color channel visualization
+- `all`: All visualization methods
+- `color-channel`: Color channel visualization
 - `gradient`: Gradient visualization
-- `hog`: HoG visualization
-- `lbp`: LBP visualization
-- `keypoint`: Keypoint detection
-- `power_spectrum`: Power spectrum analysis
+- `hog`: HoG (Histogram of Oriented Gradients) visualization
+- `lbp`: LBP (Local Binary Patterns) visualization
+- `keypoint`: Keypoint detection and visualization
+- `power-spectrum`: Power spectrum analysis
 
 ## Documentation
 

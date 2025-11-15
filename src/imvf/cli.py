@@ -1,41 +1,82 @@
-import argparse
 import sys
+from typing import Annotated
+
+import typer
 
 import imvf
 
+app = typer.Typer(help="ImgVisFeat: Visualize image features")
 
-def main() -> None:
-    """Main entry point for the ImgVisFeat CLI.
 
-    This function parses command-line arguments, calls the appropriate
-    visualization method, and either displays or saves the result.
+def visualize_image(method: str, image_path: str) -> None:
+    """Execute visualization with the specified method.
+
+    Args:
+        method: Visualization method to use.
+        image_path: Path to the input image.
     """
-    parser = argparse.ArgumentParser(description="ImgVisFeat: Visualize image features")
-    parser.add_argument("image_path", type=str, help="Path to the input image")
-    parser.add_argument(
-        "--method",
-        type=str,
-        default="all",
-        choices=[
-            "all",
-            "color_channel",
-            "gradient",
-            "hog",
-            "keypoint",
-            "lbp",
-            "power_spectrum",
-        ],
-        help="Visualization method to use",
-    )
-
-    args = parser.parse_args()
-
     visualizer = imvf.Visualizer()
     try:
-        visualizer.visualize(args.image_path)
+        visualizer.visualize(image_path)
     except Exception as e:
-        print(f"Error: {str(e)}", file=sys.stderr)
-        print("Visualization failed.")
-        sys.exit(1)
-    print("Visualization complete.")
+        typer.echo(f"Error: {str(e)}", err=True)
+        typer.echo("Visualization failed.", err=True)
+        raise typer.Exit(code=1)
+    typer.echo("Visualization complete.")
     sys.exit(0)
+
+
+@app.command()
+def all(
+    image_path: Annotated[str, typer.Argument(help="Path to the input image")],
+) -> None:
+    """Visualize all features."""
+    visualize_image("all", image_path)
+
+
+@app.command()
+def color_channel(
+    image_path: Annotated[str, typer.Argument(help="Path to the input image")],
+) -> None:
+    """Visualize color channels."""
+    visualize_image("color_channel", image_path)
+
+
+@app.command()
+def gradient(
+    image_path: Annotated[str, typer.Argument(help="Path to the input image")],
+) -> None:
+    """Visualize gradients."""
+    visualize_image("gradient", image_path)
+
+
+@app.command()
+def hog(
+    image_path: Annotated[str, typer.Argument(help="Path to the input image")],
+) -> None:
+    """Visualize Histogram of Oriented Gradients (HoG)."""
+    visualize_image("hog", image_path)
+
+
+@app.command()
+def keypoint(
+    image_path: Annotated[str, typer.Argument(help="Path to the input image")],
+) -> None:
+    """Visualize keypoints."""
+    visualize_image("keypoint", image_path)
+
+
+@app.command()
+def lbp(
+    image_path: Annotated[str, typer.Argument(help="Path to the input image")],
+) -> None:
+    """Visualize Local Binary Patterns (LBP)."""
+    visualize_image("lbp", image_path)
+
+
+@app.command()
+def power_spectrum(
+    image_path: Annotated[str, typer.Argument(help="Path to the input image")],
+) -> None:
+    """Visualize power spectrum."""
+    visualize_image("power_spectrum", image_path)
