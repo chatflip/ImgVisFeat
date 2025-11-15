@@ -1,11 +1,11 @@
 import numpy as np
 from numpy.typing import NDArray
 
-import imfv
+import imvf
 
 
 def test_color_channel_visualizer_color(
-    color_channel_visualizer: imfv.ColorChannelVisualizer,
+    color_channel_visualizer: imvf.ColorChannelVisualizer,
     color_image: NDArray[np.uint8],
 ) -> None:
     """Test the ColorChannelVisualizer class with a color image."""
@@ -16,7 +16,7 @@ def test_color_channel_visualizer_color(
 
 
 def test_color_channel_visualizer_gray(
-    color_channel_visualizer: imfv.ColorChannelVisualizer, gray_image: NDArray[np.uint8]
+    color_channel_visualizer: imvf.ColorChannelVisualizer, gray_image: NDArray[np.uint8]
 ) -> None:
     """Test the ColorChannelVisualizer class with a color image."""
     result = color_channel_visualizer(gray_image)
@@ -26,7 +26,7 @@ def test_color_channel_visualizer_gray(
 
 
 def test_color_channel_visualizer_str(
-    color_channel_visualizer: imfv.ColorChannelVisualizer,
+    color_channel_visualizer: imvf.ColorChannelVisualizer,
 ) -> None:
     """Test the __str__ method of the ColorChannelVisualizer class."""
     assert str(color_channel_visualizer) == "ColorChannelVisualizer"

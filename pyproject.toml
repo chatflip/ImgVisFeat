@@ -1,5 +1,5 @@
 [project]
-name = "imfv"
+name = "imvf"
 version = "0.0.0"
 description = "Image Visualization and Feature Extraction Library"
 readme = "README.md"

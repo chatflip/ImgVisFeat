@@ -1,11 +1,11 @@
 import numpy as np
 from numpy.typing import NDArray
 
-import imfv
+import imvf
 
 
 def test_hog_visualizer_color(
-    power_spectrum_visualizer: imfv.PowerSpectrumVisualizer,
+    power_spectrum_visualizer: imvf.PowerSpectrumVisualizer,
     color_image: NDArray[np.uint8],
 ) -> None:
     """Test the PowerSpectrumVisualizer class with a color image."""
@@ -14,7 +14,7 @@ def test_hog_visualizer_color(
 
 
 def test_hog_visualizer_gray(
-    power_spectrum_visualizer: imfv.PowerSpectrumVisualizer,
+    power_spectrum_visualizer: imvf.PowerSpectrumVisualizer,
     gray_image: NDArray[np.uint8],
 ) -> None:
     """Test the PowerSpectrumVisualizer class with a grayscale image."""
@@ -23,7 +23,7 @@ def test_hog_visualizer_gray(
 
 
 def test_power_spectrum_visualizer_str(
-    power_spectrum_visualizer: imfv.PowerSpectrumVisualizer,
+    power_spectrum_visualizer: imvf.PowerSpectrumVisualizer,
 ) -> None:
     """Test the __str__ method of the PowerSpectrumVisualizer class."""
     assert str(power_spectrum_visualizer) == "PowerSpectrumVisualizer"

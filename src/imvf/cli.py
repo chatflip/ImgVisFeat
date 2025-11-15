@@ -1,7 +1,7 @@
 import argparse
 import sys
 
-import imfv
+import imvf
 
 
 def main() -> None:
@@ -30,7 +30,7 @@ def main() -> None:
 
     args = parser.parse_args()
 
-    visualizer = imfv.Visualizer()
+    visualizer = imvf.Visualizer()
     try:
         visualizer.visualize(args.image_path)
     except Exception as e:
