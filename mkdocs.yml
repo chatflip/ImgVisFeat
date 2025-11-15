@@ -1,0 +1,122 @@
+site_name: ImgVisFeat Documentation
+site_description: Image Visualization and Feature Extraction Library
+site_url: https://chatflip.github.io/ImgVisFeat
+repo_url: https://github.com/chatflip/ImgVisFeat
+repo_name: chatflip/ImgVisFeat
+edit_uri: edit/main/docs/
+
+strict: true
+
+docs_dir: docs
+site_dir: site
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - User Guide:
+      - Overview: guide/index.md
+      - All-in-One Visualizer: guide/visualizer.md
+      - Color Channels: guide/color-channels.md
+      - Gradients: guide/gradients.md
+      - HoG Features: guide/hog.md
+      - LBP Features: guide/lbp.md
+      - Keypoint Detection: guide/keypoints.md
+      - Power Spectrum: guide/power-spectrum.md
+  - CLI Reference: cli.md
+  - API Reference:
+      - Overview: api/index.md
+      - Visualizers: api/visualizers.md
+      - Result Types: api/results.md
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/lightbulb
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/lightbulb-outline
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/lightbulb-auto-outline
+        name: Switch to system preference
+  features:
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotate
+    - content.code.copy
+    - content.code.select
+    - navigation.path
+    - navigation.indexes
+    - navigation.sections
+    - navigation.tabs
+    - navigation.top
+    - navigation.tracking
+    - toc.follow
+
+validation:
+  omitted_files: warn
+  absolute_links: warn
+  unrecognized_links: warn
+  anchors: warn
+
+markdown_extensions:
+  - tables
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.inlinehilite
+  - pymdownx.highlight:
+      anchor_linenums: true
+      pygments_lang_class: true
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - sane_lists
+
+watch:
+  - src/imvf
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+          options:
+            docstring_style: google
+            relative_crossrefs: true
+            members_order: source
+            separate_signature: true
+            show_signature_annotations: true
+            signature_crossrefs: true
+            show_source: true
+            show_root_heading: true
+            show_symbol_type_heading: true
+            show_symbol_type_toc: true
+            heading_level: 3
+          inventories:
+            - url: https://docs.python.org/3/objects.inv
+            - url: https://numpy.org/doc/stable/objects.inv
+            - url: https://docs.pydantic.dev/latest/objects.inv
