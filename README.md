@@ -78,8 +78,8 @@ For more details on development workflows, see [CLAUDE.md](CLAUDE.md).
 ### Verify Installation
 
 ```python
-import ivf
-print(ivf.__version__)
+import imfv
+print(imfv.__version__)
 ```
 
 ## Quick Start
@@ -89,10 +89,10 @@ print(ivf.__version__)
 The `Visualizer` class provides a convenient way to apply all visualization methods at once:
 
 ```python
-import ivf
+import imfv
 
 # Create visualizer instance
-visualizer = ivf.Visualizer()
+visualizer = imfv.Visualizer()
 
 # Visualize all features and save results to a directory named after the image
 visualizer.visualize("path/to/image.jpg")
@@ -106,32 +106,32 @@ You can also use individual visualizers for specific analyses:
 
 ```python
 import cv2
-import ivf
+import imfv
 
 # Load image
 image = cv2.imread("path/to/image.jpg")
 
 # Color channel visualization
-color_channel = ivf.ColorChannelVisualizer()
+color_channel = imfv.ColorChannelVisualizer()
 result = color_channel(image)
 cv2.imshow("Blue Channel", result.blue)
 cv2.imshow("Green Channel", result.green)
 cv2.imshow("Red Channel", result.red)
 
 # Gradient visualization (for color images)
-gradient = ivf.ColorGradientVisualizer()
+gradient = imfv.ColorGradientVisualizer()
 result = gradient(image)
 cv2.imshow("Gradient X", result.gradient_x)
 cv2.imshow("Gradient Y", result.gradient_y)
 cv2.imshow("Gradient XY", result.gradient_xy)
 
 # HoG visualization
-hog = ivf.HoGVisualizer()
+hog = imfv.HoGVisualizer()
 result = hog(image)
 cv2.imshow("HoG", result.hog)
 
 # Keypoint detection
-keypoint = ivf.KeypointVisualizer(algorithm="SIFT")  # or "AKAZE", "ORB"
+keypoint = imfv.KeypointVisualizer(algorithm="SIFT")  # or "AKAZE", "ORB"
 result = keypoint(image)
 cv2.imshow("Keypoints", result.keypoint)
 cv2.imshow("Rich Keypoints", result.rich_keypoint)
@@ -143,10 +143,10 @@ ImgVisFeat provides a command-line interface for quick visualizations:
 
 ```bash
 # Visualize all features
-ivf path/to/image.jpg
+imfv path/to/image.jpg
 
 # Visualize specific feature (currently all methods are applied)
-ivf path/to/image.jpg --method all
+imfv path/to/image.jpg --method all
 ```
 
 Available methods:

@@ -2,7 +2,7 @@ import numpy as np
 import pytest
 from numpy.typing import NDArray
 
-import ivf
+import imfv
 
 from .utils import get_image
 
@@ -28,36 +28,36 @@ def gray_image() -> NDArray[np.uint8]:
 
 
 @pytest.fixture(name="color_channel_visualizer")
-def color_channel_visualizer() -> ivf.ColorChannelVisualizer:
+def color_channel_visualizer() -> imfv.ColorChannelVisualizer:
     """Fixture to create a ColorChannelVisualizer instance."""
-    return ivf.ColorChannelVisualizer()
+    return imfv.ColorChannelVisualizer()
 
 
 @pytest.fixture(name="gray_gradient_visualizer")
-def gray_gradient_visualizer() -> ivf.GrayGradientVisualizer:
+def gray_gradient_visualizer() -> imfv.GrayGradientVisualizer:
     """Fixture to create a GrayGradientVisualizer instance."""
-    return ivf.GrayGradientVisualizer()
+    return imfv.GrayGradientVisualizer()
 
 
 @pytest.fixture(name="color_gradient_visualizer")
-def color_gradient_visualizer() -> ivf.ColorGradientVisualizer:
+def color_gradient_visualizer() -> imfv.ColorGradientVisualizer:
     """Fixture to create a ColorGradientVisualizer instance."""
-    return ivf.ColorGradientVisualizer()
+    return imfv.ColorGradientVisualizer()
 
 
 @pytest.fixture(name="hog_visualizer")
-def hog_visualizer() -> ivf.HoGVisualizer:
+def hog_visualizer() -> imfv.HoGVisualizer:
     """Fixture to create a HoGVisualizer instance."""
-    return ivf.HoGVisualizer()
+    return imfv.HoGVisualizer()
 
 
 @pytest.fixture(name="lbp_visualizer")
-def lbp_visualizer() -> ivf.LBPVisualizer:
+def lbp_visualizer() -> imfv.LBPVisualizer:
     """Fixture to create a LBPVisualizer instance."""
-    return ivf.LBPVisualizer()
+    return imfv.LBPVisualizer()
 
 
 @pytest.fixture(name="power_spectrum_visualizer")
-def power_spectrum_visualizer() -> ivf.PowerSpectrumVisualizer:
+def power_spectrum_visualizer() -> imfv.PowerSpectrumVisualizer:
     """Fixture to create a PowerSpectrumVisualizer instance."""
-    return ivf.PowerSpectrumVisualizer()
+    return imfv.PowerSpectrumVisualizer()

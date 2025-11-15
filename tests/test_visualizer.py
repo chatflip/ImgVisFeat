@@ -2,7 +2,7 @@ from unittest import mock
 
 import pytest
 
-import ivf
+import imfv
 
 from .utils import get_test_image_path, get_test_text_path
 
@@ -16,7 +16,7 @@ def test_nonexistent_file() -> None:
     Raises:
         FileNotFoundError: When a nonexistent file path is provided to visualize().
     """
-    vis = ivf.Visualizer()
+    vis = imfv.Visualizer()
     non_exists_file_path = "path/to/nonexists/path.jpg"
     with pytest.raises(FileNotFoundError):
         vis.visualize(non_exists_file_path)
@@ -31,7 +31,7 @@ def test_directory() -> None:
     Raises:
         IsADirectoryError: When a directory path is provided to visualize().
     """
-    vis = ivf.Visualizer()
+    vis = imfv.Visualizer()
     directory_path = "tests/resources/images"
     with pytest.raises(IsADirectoryError):
         vis.visualize(directory_path)
@@ -43,7 +43,7 @@ def test_text() -> None:
     Raises:
         ValueError: If the text file is not an image.
     """
-    vis = ivf.Visualizer()
+    vis = imfv.Visualizer()
     text_path = get_test_text_path()
     with pytest.raises(ValueError):
         vis.visualize(text_path)
@@ -57,7 +57,7 @@ def test_visualize() -> None:
 
     Uses mock.patch to replace cv2 functions and verify their calls.
     """
-    vis = ivf.Visualizer()
+    vis = imfv.Visualizer()
     image_path = get_test_image_path()
     with (
         mock.patch("cv2.imshow"),

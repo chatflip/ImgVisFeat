@@ -1,11 +1,11 @@
 import numpy as np
 from numpy.typing import NDArray
 
-import ivf
+import imfv
 
 
 def test_hog_visualizer_color(
-    hog_visualizer: ivf.HoGVisualizer, color_image: NDArray[np.uint8]
+    hog_visualizer: imfv.HoGVisualizer, color_image: NDArray[np.uint8]
 ) -> None:
     """Test the HoGVisualizer class with a color image."""
     result = hog_visualizer(color_image)
@@ -13,7 +13,7 @@ def test_hog_visualizer_color(
 
 
 def test_hog_visualizer_gray(
-    hog_visualizer: ivf.HoGVisualizer, gray_image: NDArray[np.uint8]
+    hog_visualizer: imfv.HoGVisualizer, gray_image: NDArray[np.uint8]
 ) -> None:
     """Test the HoGVisualizer class with a grayscale image."""
     result = hog_visualizer(gray_image)
@@ -21,7 +21,7 @@ def test_hog_visualizer_gray(
 
 
 def test_hog_visualizer_str(
-    hog_visualizer: ivf.HoGVisualizer,
+    hog_visualizer: imfv.HoGVisualizer,
 ) -> None:
     """Test the __str__ method of the HoGVisualizer class."""
     assert str(hog_visualizer) == "HoGVisualizer"
