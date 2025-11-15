@@ -4,7 +4,7 @@ repos:
     hooks:
       - id: prettier
         name: Prettier YAML
-        types_or: [yaml]
+        types: [yaml]
 
   - repo: local
     hooks:
