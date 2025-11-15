@@ -13,6 +13,11 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
       - name: Install uv and set the Python version
         uses: astral-sh/setup-uv@v6
         with:
