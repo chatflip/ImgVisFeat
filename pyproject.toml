@@ -117,6 +117,14 @@ include = ["src", "tests"]
 [tool.ty.terminal]
 error-on-warning = true
 
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = [
+    "--cov=./",
+    "--cov-report=xml",
+    "--verbose",
+]
+
 [tool.coverage.run]
 branch = true
 source = ["src/imvf"]
