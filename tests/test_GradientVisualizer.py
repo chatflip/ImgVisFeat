@@ -1,11 +1,12 @@
 import numpy as np
 from numpy.typing import NDArray
 
-import ivf
+import imfv
 
 
 def test_gray_gradient_visualizer_color(
-    gray_gradient_visualizer: ivf.GrayGradientVisualizer, color_image: NDArray[np.uint8]
+    gray_gradient_visualizer: imfv.GrayGradientVisualizer,
+    color_image: NDArray[np.uint8],
 ) -> None:
     """Test the GrayGradientVisualizer class with a color image."""
     result = gray_gradient_visualizer(color_image)
@@ -15,7 +16,7 @@ def test_gray_gradient_visualizer_color(
 
 
 def test_gray_gradient_visualizer_gray(
-    gray_gradient_visualizer: ivf.GrayGradientVisualizer, gray_image: NDArray[np.uint8]
+    gray_gradient_visualizer: imfv.GrayGradientVisualizer, gray_image: NDArray[np.uint8]
 ) -> None:
     """Test the GrayGradientVisualizer class with a color image."""
     result = gray_gradient_visualizer(gray_image)
@@ -25,7 +26,7 @@ def test_gray_gradient_visualizer_gray(
 
 
 def test_color_gradient_visualizer_color(
-    color_gradient_visualizer: ivf.ColorGradientVisualizer,
+    color_gradient_visualizer: imfv.ColorGradientVisualizer,
     color_image: NDArray[np.uint8],
 ) -> None:
     """Test the ColorGradientVisualizer class with a color image."""
@@ -36,7 +37,7 @@ def test_color_gradient_visualizer_color(
 
 
 def test_color_gradient_visualizer_gray(
-    color_gradient_visualizer: ivf.ColorGradientVisualizer,
+    color_gradient_visualizer: imfv.ColorGradientVisualizer,
     gray_image: NDArray[np.uint8],
 ) -> None:
     """Test the ColorGradientVisualizer class with a color image."""
@@ -47,14 +48,14 @@ def test_color_gradient_visualizer_gray(
 
 
 def test_gray_gradient_visualizer_str(
-    gray_gradient_visualizer: ivf.GrayGradientVisualizer,
+    gray_gradient_visualizer: imfv.GrayGradientVisualizer,
 ) -> None:
     """Test the __str__ method of the GrayGradientVisualizer class."""
     assert str(gray_gradient_visualizer) == "GrayGradientVisualizer"
 
 
 def test_color_gradient_visualizer_str(
-    color_gradient_visualizer: ivf.ColorGradientVisualizer,
+    color_gradient_visualizer: imfv.ColorGradientVisualizer,
 ) -> None:
     """Test the __str__ method of the ColorGradientVisualizer class."""
     assert str(color_gradient_visualizer) == "ColorGradientVisualizer"
