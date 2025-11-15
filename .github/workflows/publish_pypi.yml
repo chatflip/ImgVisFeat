@@ -34,7 +34,7 @@ jobs:
           uv version $VERSION
 
       - name: Build
-        run: uv build
+        run: uv run --frozen --no-sync build
 
       - name: Publish package to PyPI
-        run: uv publish
+        run: uv run --frozen --no-sync publish
