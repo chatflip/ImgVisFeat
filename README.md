@@ -1,10 +1,10 @@
 # ImgVisFeat
 
-|             |                                                                                                                                                                                                                                                                                                                            |
+| Category    | Badges                                                                                                                                                                                                                                                                                                                     |
 | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Project     | [![PyPI version](https://badge.fury.io/py/ImgVisFeat.svg)](https://pypi.org/project/ImgVisFeat/) [![Documentation](https://img.shields.io/badge/docs-latest-blue.svg)](https://chatflip.github.io/ImgVisFeat/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) |
-| Package     | [![Python Versions](https://img.shields.io/pypi/pyversions/ImgVisFeat.svg)](https://pypi.org/project/ImgVisFeat/)                                                                                                                                                                                                          |
-| Development | [![Build Status](https://github.com/chatflip/ImgVisFeat/actions/workflows/lints_tests.yml/badge.svg)](https://github.com/chatflip/ImgVisFeat/actions) [![Codecov](https://codecov.io/gh/chatflip/ImgVisFeat/branch/main/graph/badge.svg)](https://codecov.io/gh/chatflip/ImgVisFeat)                                       |
+| Project     | [![PyPI version](https://badge.fury.io/py/imvf.svg)](https://pypi.org/project/imvf/) [![Documentation](https://img.shields.io/badge/docs-latest-blue.svg)](https://chatflip.github.io/ImgVisFeat/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) |
+| Package     | [![Python Versions](https://img.shields.io/pypi/pyversions/imvf.svg)](https://pypi.org/project/imvf/)                                                                                                                                                                                                                      |
+| Development | [![Run lints and tests](https://github.com/chatflip/ImgVisFeat/actions/workflows/lints_tests.yml/badge.svg)](https://github.com/chatflip/ImgVisFeat/actions/workflows/lints_tests.yml) [![Codecov](https://codecov.io/gh/chatflip/ImgVisFeat/branch/main/graph/badge.svg)](https://codecov.io/gh/chatflip/ImgVisFeat)     |
 | Community   | [![GitHub issues](https://img.shields.io/github/issues/chatflip/ImgVisFeat.svg)](https://github.com/chatflip/ImgVisFeat/issues) [![GitHub stars](https://img.shields.io/github/stars/chatflip/ImgVisFeat.svg)](https://github.com/chatflip/ImgVisFeat/stargazers)                                                          |
 
 ImgVisFeat is a Python library for image visualization and feature extraction, providing a comprehensive set of tools for analyzing and visualizing various image features.
@@ -33,10 +33,10 @@ ImgVisFeat provides the following visualization and feature extraction capabilit
 
 ```bash
 # Using pip
-pip install ImgVisFeat
+pip install imvf
 
 # Using uv (faster alternative)
-uv add ImgVisFeat
+uv add imvf
 ```
 
 ### Development Installation
