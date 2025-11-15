@@ -27,13 +27,6 @@ jobs:
           VERSION=${GITHUB_REF#refs/tags/v}
           uv version $VERSION
 
-      - name: Sphinx build
+      - name: Build and deploy documentation
         run: |
-          uv run make builddocs
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v4
-        if: github.ref == 'refs/heads/main'
-        with:
-          personal_token: ${{ secrets.GH_PAT }}
-          publish_dir: _build
+          uv run mkdocs gh-deploy

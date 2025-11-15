@@ -1,4 +1,4 @@
-.PHONY: help format lint test builddocs cleandocs
+.PHONY: help format lint test servedocs cleandocs
 
 .DEFAULT_GOAL := help
 
@@ -8,8 +8,8 @@ help:
 	@echo "  format - Run formatting checks and fixes"
 	@echo "  lint - Run linting checks"
 	@echo "  test - Run tests"
-	@echo "  builddocs - Build the documentation"
-	@echo "  cleandocs - Clean the documentation build artifacts"
+	@echo "  servedocs - Serve documentation with live reload"
+	@echo "  cleandocs - Clean documentation build artifacts"
 
 format:
 	uv run ruff check --fix
@@ -23,8 +23,9 @@ lint:
 test:
 	uv run pytest
 
-builddocs:
-	uv run sphinx-build docs _build
+servedocs:
+	uv run mkdocs serve
 
 cleandocs:
-	rm -rf _build
+	rm -rf site/
+
