@@ -46,9 +46,9 @@ Examples
 Implementation Details
 ----------------------
 
-The CLI is implemented in the :mod:`imgvisfeat.cli` module. Here's an overview of the main function:
+The CLI is implemented in the :mod:`ivf.cli` module. Here's an overview of the main function:
 
-.. automodule:: imgvisfeat.cli
+.. automodule:: ivf.cli
    :members: main
    :undoc-members:
    :show-inheritance:

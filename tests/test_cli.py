@@ -4,7 +4,7 @@ from unittest.mock import MagicMock, patch
 import pytest
 from pytest import CaptureFixture
 
-from imgvisfeat import cli
+from ivf import cli
 
 from .utils import get_test_image_path
 

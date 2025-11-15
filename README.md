@@ -78,7 +78,7 @@ For more details on development workflows, see [CLAUDE.md](CLAUDE.md).
 ### Verify Installation
 
 ```python
-import imgvisfeat as ivf
+import ivf
 print(ivf.__version__)
 ```
 
@@ -89,7 +89,7 @@ print(ivf.__version__)
 The `Visualizer` class provides a convenient way to apply all visualization methods at once:
 
 ```python
-import imgvisfeat as ivf
+import ivf
 
 # Create visualizer instance
 visualizer = ivf.Visualizer()
@@ -106,7 +106,7 @@ You can also use individual visualizers for specific analyses:
 
 ```python
 import cv2
-import imgvisfeat as ivf
+import ivf
 
 # Load image
 image = cv2.imread("path/to/image.jpg")

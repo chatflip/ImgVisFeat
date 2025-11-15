@@ -3,31 +3,31 @@ Data Classes
 
 This section covers the data classes used to represent visualization results.
 
-.. automodule:: imgvisfeat.type
+.. automodule:: ivf.type
    :members:
    :undoc-members:
    :show-inheritance:
 
-.. autoclass:: imgvisfeat.type.ColorChannelResult
+.. autoclass:: ivf.type.ColorChannelResult
    :members:
    :undoc-members:
 
-.. autoclass:: imgvisfeat.type.GradientResult
+.. autoclass:: ivf.type.GradientResult
    :members:
    :undoc-members:
 
-.. autoclass:: imgvisfeat.type.PowerSpectrumResult
+.. autoclass:: ivf.type.PowerSpectrumResult
    :members:
    :undoc-members:
 
-.. autoclass:: imgvisfeat.type.HogResult
+.. autoclass:: ivf.type.HogResult
    :members:
    :undoc-members:
 
-.. autoclass:: imgvisfeat.type.LBPResult
+.. autoclass:: ivf.type.LBPResult
    :members:
    :undoc-members:
 
-.. autoclass:: imgvisfeat.type.KeypointResult
+.. autoclass:: ivf.type.KeypointResult
    :members:
    :undoc-members:

@@ -1,7 +1,7 @@
 import numpy as np
 from numpy.typing import NDArray
 
-import imgvisfeat as ivf
+import ivf
 
 
 def test_color_channel_visualizer_color(
