@@ -1,5 +1,0 @@
-[src]
-include = ["src", "tests"]
-
-[terminal]
-error-on-warning = true

@@ -111,7 +111,11 @@ unfixable = ["B"]
 [tool.ruff.lint.pydocstyle]
 convention = "google"
 
+[tool.ty.src]
+include = ["src", "tests"]
 
+[tool.ty.terminal]
+error-on-warning = true
 
 [build-system]
 requires = ["uv_build>=0.9.7,<0.10.0"]
