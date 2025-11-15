@@ -30,6 +30,7 @@ dependencies = [
     "opencv-python",
     "pydantic>=2.0.0",
     "scikit-image",
+    "typer>=0.20.0",
 ]
 
 [dependency-groups]
@@ -58,7 +59,7 @@ Documentation = "https://chatflip.github.io/ImgVisFeat"
 Issues = "https://github.com/chatflip/ImgVisFeat/issues"
 
 [project.scripts]
-ivf = "imgvisfeat.cli:main"
+imvf = "imvf.cli:app"
 
 [tool.uv]
 default-groups = []
