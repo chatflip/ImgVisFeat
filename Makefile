@@ -14,7 +14,6 @@ help:
 format:
 	uv run ruff check --fix
 	uv run ruff format
-	uv run mdformat README.md
 
 lint:
 	uv run ruff check

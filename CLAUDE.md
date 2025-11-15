@@ -57,7 +57,7 @@ git commit --trailer "Github-Issue:#<number>"    # GitHub issue関連
 
 ```bash
 make help        # 利用可能なターゲットを表示
-make format      # フォーマット（ruff + mdformat）
+make format      # フォーマット（ruff)
 make lint        # リントと型チェック（ruff + ty）
 make test        # テスト実行（pytest + カバレッジ）
 make builddocs   # ドキュメントをビルド
