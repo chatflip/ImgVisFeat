@@ -2,7 +2,7 @@ import numpy as np
 import pytest
 from numpy.typing import NDArray
 
-import imfv
+import imvf
 
 from .utils import get_image
 
@@ -28,36 +28,36 @@ def gray_image() -> NDArray[np.uint8]:
 
 
 @pytest.fixture(name="color_channel_visualizer")
-def color_channel_visualizer() -> imfv.ColorChannelVisualizer:
+def color_channel_visualizer() -> imvf.ColorChannelVisualizer:
     """Fixture to create a ColorChannelVisualizer instance."""
-    return imfv.ColorChannelVisualizer()
+    return imvf.ColorChannelVisualizer()
 
 
 @pytest.fixture(name="gray_gradient_visualizer")
-def gray_gradient_visualizer() -> imfv.GrayGradientVisualizer:
+def gray_gradient_visualizer() -> imvf.GrayGradientVisualizer:
     """Fixture to create a GrayGradientVisualizer instance."""
-    return imfv.GrayGradientVisualizer()
+    return imvf.GrayGradientVisualizer()
 
 
 @pytest.fixture(name="color_gradient_visualizer")
-def color_gradient_visualizer() -> imfv.ColorGradientVisualizer:
+def color_gradient_visualizer() -> imvf.ColorGradientVisualizer:
     """Fixture to create a ColorGradientVisualizer instance."""
-    return imfv.ColorGradientVisualizer()
+    return imvf.ColorGradientVisualizer()
 
 
 @pytest.fixture(name="hog_visualizer")
-def hog_visualizer() -> imfv.HoGVisualizer:
+def hog_visualizer() -> imvf.HoGVisualizer:
     """Fixture to create a HoGVisualizer instance."""
-    return imfv.HoGVisualizer()
+    return imvf.HoGVisualizer()
 
 
 @pytest.fixture(name="lbp_visualizer")
-def lbp_visualizer() -> imfv.LBPVisualizer:
+def lbp_visualizer() -> imvf.LBPVisualizer:
     """Fixture to create a LBPVisualizer instance."""
-    return imfv.LBPVisualizer()
+    return imvf.LBPVisualizer()
 
 
 @pytest.fixture(name="power_spectrum_visualizer")
-def power_spectrum_visualizer() -> imfv.PowerSpectrumVisualizer:
+def power_spectrum_visualizer() -> imvf.PowerSpectrumVisualizer:
     """Fixture to create a PowerSpectrumVisualizer instance."""
-    return imfv.PowerSpectrumVisualizer()
+    return imvf.PowerSpectrumVisualizer()

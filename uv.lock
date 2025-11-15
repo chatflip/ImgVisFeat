@@ -341,7 +341,7 @@ wheels = [
 ]
 
 [[package]]
-name = "imfv"
+name = "imvf"
 version = "0.0.0"
 source = { editable = "." }
 dependencies = [

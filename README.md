@@ -78,8 +78,8 @@ For more details on development workflows, see [CLAUDE.md](CLAUDE.md).
 ### Verify Installation
 
 ```python
-import imfv
-print(imfv.__version__)
+import imvf
+print(imvf.__version__)
 ```
 
 ## Quick Start
@@ -89,10 +89,10 @@ print(imfv.__version__)
 The `Visualizer` class provides a convenient way to apply all visualization methods at once:
 
 ```python
-import imfv
+import imvf
 
 # Create visualizer instance
-visualizer = imfv.Visualizer()
+visualizer = imvf.Visualizer()
 
 # Visualize all features and save results to a directory named after the image
 visualizer.visualize("path/to/image.jpg")
@@ -106,32 +106,32 @@ You can also use individual visualizers for specific analyses:
 
 ```python
 import cv2
-import imfv
+import imvf
 
 # Load image
 image = cv2.imread("path/to/image.jpg")
 
 # Color channel visualization
-color_channel = imfv.ColorChannelVisualizer()
+color_channel = imvf.ColorChannelVisualizer()
 result = color_channel(image)
 cv2.imshow("Blue Channel", result.blue)
 cv2.imshow("Green Channel", result.green)
 cv2.imshow("Red Channel", result.red)
 
 # Gradient visualization (for color images)
-gradient = imfv.ColorGradientVisualizer()
+gradient = imvf.ColorGradientVisualizer()
 result = gradient(image)
 cv2.imshow("Gradient X", result.gradient_x)
 cv2.imshow("Gradient Y", result.gradient_y)
 cv2.imshow("Gradient XY", result.gradient_xy)
 
 # HoG visualization
-hog = imfv.HoGVisualizer()
+hog = imvf.HoGVisualizer()
 result = hog(image)
 cv2.imshow("HoG", result.hog)
 
 # Keypoint detection
-keypoint = imfv.KeypointVisualizer(algorithm="SIFT")  # or "AKAZE", "ORB"
+keypoint = imvf.KeypointVisualizer(algorithm="SIFT")  # or "AKAZE", "ORB"
 result = keypoint(image)
 cv2.imshow("Keypoints", result.keypoint)
 cv2.imshow("Rich Keypoints", result.rich_keypoint)
@@ -143,10 +143,10 @@ ImgVisFeat provides a command-line interface for quick visualizations:
 
 ```bash
 # Visualize all features
-imfv path/to/image.jpg
+imvf path/to/image.jpg
 
 # Visualize specific feature (currently all methods are applied)
-imfv path/to/image.jpg --method all
+imvf path/to/image.jpg --method all
 ```
 
 Available methods:

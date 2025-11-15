@@ -2,7 +2,7 @@ import numpy as np
 import pytest
 from pydantic import ValidationError
 
-from imfv.type import ColorChannelResult
+from imvf.type import ColorChannelResult
 
 
 def test_color_channel_result_validation_not_ndarray() -> None:
