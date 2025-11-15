@@ -4,11 +4,12 @@ on:
   push:
     tags:
       - "v*.*.*"
-permissions:
-  contents: write
+
 jobs:
   docs:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v5
 
@@ -30,4 +31,4 @@ jobs:
 
       - name: Deploy documentation
         run: |
-          uv run mkdocs gh-deploy --force
+          uv run --frozen --no-sync mkdocs gh-deploy --force --clean
